@@ -1,6 +1,6 @@
 import React from "react";
-import { Canvas } from "@react-three/fiber";
-import Box from "../../components/Box/Box";
+import { Canvas, extend } from "@react-three/fiber";
+import SphereAnimation from "../sphere-animation/SphereAnimation.jsx";
 import { OrbitControls } from "@react-three/drei";
 import "./Canvas.scss";
 import { Suspense } from "react";
@@ -12,9 +12,9 @@ const Scene = () => {
         <Canvas>
           <OrbitControls enableZoom={false} />
           <ambientLight intensity={0.5} />
-          <directionalLight color="pink" position={[-2, 5, 2]} intensity={4} />
+          <directionalLight position={[-2, 10, 2]} intensity={0.5} />
           <Suspense fallback={null}>
-            <Box />
+            <SphereAnimation />
           </Suspense>
         </Canvas>
       </div>
