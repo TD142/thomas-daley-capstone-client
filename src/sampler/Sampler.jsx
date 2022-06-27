@@ -2,26 +2,35 @@ import React, { useState } from "react";
 import "./sampler.scss";
 
 const Sampler = ({ sounds }) => {
-  const [soundPlaying, setSoundPlaying] = useState(false);
-
   const kick = new Audio(sounds.kick);
   const pad = new Audio(sounds.pad1);
 
-  const playKick = () => {
-    if (kick.paused === true) {
-      kick.play();
-    } else {
-      kick.pause();
-      kick.currentTime = 0;
-    }
-  };
+  // const playKick = () => {
+  //   if (kick.paused === true) {
+  //     kick.play();
+  //     kick.loop = true;
+  //   } else {
+  //     kick.pause();
+  //     kick.currentTime = 0;
+  //   }
+  // };
 
-  const playPad = () => {
-    if (pad.paused === true) {
-      pad.play();
+  const triggerAudio = (sound) => {
+    if (sound.paused === true) {
+      sound.volume = 1;
+      sound.play();
     } else {
-      pad.pause();
-      pad.currentTime = 0;
+      const fadeAudio = setInterval(() => {
+        if (sound.volume > 0) {
+          sound.volume -= 0.1;
+        }
+
+        if (sound.volume < 0.003) {
+          clearInterval(fadeAudio);
+          sound.pause();
+          sound.currentTime = 0;
+        }
+      }, 200);
     }
   };
 
@@ -34,8 +43,18 @@ const Sampler = ({ sounds }) => {
     <div className="sampler">
       {/* <h2 className="sampler__header">PLAY</h2> */}
       <div className="sampler__container">
-        <button onClick={playKick} className="sampler__trigger"></button>
-        <button onClick={playPad} className="sampler__trigger"></button>
+        <button
+          onClick={() => {
+            triggerAudio(kick);
+          }}
+          className="sampler__trigger"
+        ></button>
+        <button
+          onClick={() => {
+            triggerAudio(pad);
+          }}
+          className="sampler__trigger"
+        ></button>
         <button className="sampler__trigger"></button>
         <button className="sampler__trigger"></button>
       </div>
