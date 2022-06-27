@@ -3,3 +3,21 @@
   height: 35rem;
   background: black;
 }
+
+.option {
+  &__title {
+    color: white;
+    margin: 0;
+    font-size: 12px;
+  }
+}
+
+.animation-dropdown {
+  background-color: white;
+  align-self: flex-end;
+
+  &__container {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

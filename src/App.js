@@ -1,4 +1,5 @@
 import HomePage from "./components/pages/home-page/HomePage";
+import "./App.scss";
 
 const App = () => {
   return (

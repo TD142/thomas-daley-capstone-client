@@ -7,25 +7,48 @@ import { Suspense } from "react";
 import BoxAnimation from "../box-animation/BoxAnimation.jsx";
 import CircleAnimation from "../circle-animation/CircleAnimation.jsx";
 import { useState } from "react";
-import { Stars } from "@react-three/drei";
+
+import DatGui, {
+  DatBoolean,
+  DatColor,
+  DatNumber,
+  DatString,
+} from "react-dat-gui";
 
 const Scene = () => {
-  const [currentShape, setCurrentShape] = useState("circle");
+  const [currentAnimation, setCurrentAnimation] = useState("Horizon");
+  const [color, setColor] = useState({
+    dotColor: "#22454D",
+  });
+
+  const handleChange = async (event) => {
+    setCurrentAnimation(event.target.value);
+  };
+
+  // const handleUpdate = (data) => {
+  //   setDatGuiData(data);
+  //   console.log(data);
+  // };
 
   return (
     <div>
-      <select>
-        <option value="fruit">Horizon</option>
-        <option value="vegetable">React</option>
-        <option value="meat">Meat</option>
-      </select>
+      <DatGui data={color} onUpdate={setColor}>
+        <DatColor path="dotColor" label="dotColor"></DatColor>
+      </DatGui>
+      {/* <h3 className="option__title">ANIMATION</h3> */}
+      <div className="animation-dropdown__container">
+        <select className="animation-dropdown" onChange={handleChange}>
+          <option value="Horizon">Horizon</option>
+          <option value="React">React</option>
+        </select>
+      </div>
       <div className="canvas">
         <Canvas>
           <OrbitControls enableZoom={false} />
           <ambientLight intensity={0.5} />
           <directionalLight position={[-2, 10, 2]} intensity={0.5} />
           <Suspense fallback={null}>
-            {currentShape === "sphere" ? (
+            {currentAnimation === "Horizon" ? (
               <>
                 <SphereAnimation />
                 <BoxAnimation />
@@ -34,7 +57,7 @@ const Scene = () => {
               <CircleAnimation />
             )}
 
-            {currentShape === "circle" ? (
+            {currentAnimation === "React" ? (
               <>
                 <CircleAnimation />
               </>

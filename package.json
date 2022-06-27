@@ -13,6 +13,7 @@
     "drei": "^2.2.21",
     "glslify": "^7.1.1",
     "react": "^18.2.0",
+    "react-dat-gui": "^4.1.1",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "sass": "^1.53.0",
