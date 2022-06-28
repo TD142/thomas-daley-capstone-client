@@ -8,17 +8,15 @@ import BoxAnimation from "../box-animation/BoxAnimation.jsx";
 import CircleAnimation from "../circle-animation/CircleAnimation.jsx";
 import { useState } from "react";
 
-import DatGui, {
-  DatBoolean,
-  DatColor,
-  DatNumber,
-  DatString,
-} from "react-dat-gui";
+import DatGui, { DatColor } from "react-dat-gui";
 
 const Scene = () => {
   const [currentAnimation, setCurrentAnimation] = useState("Horizon");
-  const [color, setColor] = useState({
-    dotColor: "#22454D",
+  const [horizonSettings, setHorizonSettings] = useState({
+    animationColor: "#8b0000",
+  });
+  const [pulseSettings, setpulseSettings] = useState({
+    animationColor: "#ADD8E6",
   });
 
   const handleChange = async (event) => {
@@ -32,14 +30,25 @@ const Scene = () => {
 
   return (
     <div>
-      <DatGui data={color} onUpdate={setColor}>
-        <DatColor path="dotColor" label="dotColor"></DatColor>
-      </DatGui>
+      {currentAnimation === "Horizon" ? (
+        <DatGui data={horizonSettings} onUpdate={setHorizonSettings}>
+          <DatColor path="animationColor" label="animationColor"></DatColor>
+        </DatGui>
+      ) : (
+        <div>loading...</div>
+      )}
+      {currentAnimation === "Pulse" ? (
+        <DatGui data={pulseSettings} onUpdate={setpulseSettings}>
+          <DatColor path="animationColor" label="animationColor"></DatColor>
+        </DatGui>
+      ) : (
+        <div>loading...</div>
+      )}
       {/* <h3 className="option__title">ANIMATION</h3> */}
       <div className="animation-dropdown__container">
         <select className="animation-dropdown" onChange={handleChange}>
           <option value="Horizon">Horizon</option>
-          <option value="React">React</option>
+          <option value="Pulse">Pulse</option>
         </select>
       </div>
       <div className="canvas">
@@ -50,22 +59,19 @@ const Scene = () => {
           <Suspense fallback={null}>
             {currentAnimation === "Horizon" ? (
               <>
-                <SphereAnimation />
+                <SphereAnimation horizonSettings={horizonSettings} />
                 <BoxAnimation />
               </>
             ) : (
-              <CircleAnimation />
+              <></>
             )}
 
-            {currentAnimation === "React" ? (
+            {currentAnimation === "Pulse" ? (
               <>
-                <CircleAnimation />
+                <CircleAnimation pulseSettings={pulseSettings} />
               </>
             ) : (
-              <>
-                <SphereAnimation />
-                <BoxAnimation />
-              </>
+              <></>
             )}
           </Suspense>
           {/* <Stars

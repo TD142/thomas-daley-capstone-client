@@ -5,6 +5,8 @@ const Sampler = ({ sounds }) => {
   const kick = new Audio(sounds.kick);
   const pad = new Audio(sounds.pad1);
 
+  const [soundPlaying, setSoundPlaying] = useState(false);
+
   // const playKick = () => {
   //   if (kick.paused === true) {
   //     kick.play();
@@ -18,13 +20,14 @@ const Sampler = ({ sounds }) => {
   const triggerAudio = (sound) => {
     if (sound.paused === true) {
       sound.volume = 1;
+      sound.currentTime = 0;
       sound.play();
     } else {
       const fadeAudio = setInterval(() => {
-        if (sound.volume > 0) {
+        if (sound.volume && sound.currentTime > 0) {
           sound.volume -= 0.1;
         }
-
+        // setSoundPlaying(false);
         if (sound.volume < 0.003) {
           clearInterval(fadeAudio);
           sound.pause();
@@ -33,6 +36,18 @@ const Sampler = ({ sounds }) => {
       }, 200);
     }
   };
+
+  // const triggerColor = (event) => {
+  //   if (soundPlaying === false) {
+  //     event.target.classList.add("sampler__trigger--playing");
+  //     setSoundPlaying(true);
+  //   }
+
+  //   if (soundPlaying === true) {
+  //     event.target.classList.remove("sampler__trigger--playing");
+  //     setSoundPlaying(false);
+  //   }
+  // };
 
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   const audioCtx = new AudioContext();

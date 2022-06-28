@@ -5,7 +5,8 @@ import { TextureLoader } from "three";
 import Texture from "../../assets/images/TexturesCom_FloorMetalGrate_header9.jpg";
 import { DoubleSide } from "three";
 
-const SphereAnimation = () => {
+const SphereAnimation = ({ horizonSettings }) => {
+  console.log(horizonSettings);
   const mesh = useRef();
 
   useFrame((state, delta) => {
@@ -16,7 +17,11 @@ const SphereAnimation = () => {
   return (
     <mesh ref={mesh}>
       <sphereGeometry args={[2, 60, 60]} />
-      <meshBasicMaterial wireframe={true} side={DoubleSide} color="darkred" />
+      <meshBasicMaterial
+        wireframe={true}
+        side={DoubleSide}
+        color={horizonSettings.animationColor}
+      />
     </mesh>
   );
 };

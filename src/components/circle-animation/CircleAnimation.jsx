@@ -5,7 +5,9 @@ import { TextureLoader } from "three";
 import { DoubleSide } from "three";
 import { MeshDistortMaterial } from "@react-three/drei";
 
-const CircleAnimation = () => {
+const CircleAnimation = ({ pulseSettings }) => {
+  console.log(pulseSettings);
+
   const mesh = useRef();
 
   //   useFrame((state, delta) => {
@@ -18,7 +20,7 @@ const CircleAnimation = () => {
       <MeshDistortMaterial
         wireframe={true}
         side={DoubleSide}
-        color="lightblue"
+        color={pulseSettings.animationColor}
       />
     </mesh>
   );
