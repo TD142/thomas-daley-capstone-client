@@ -1,3 +1,4 @@
+@use "../../styles//partials//mixins" as *;
 .sampler {
   padding-bottom: 5rem;
   background: black;
@@ -10,10 +11,20 @@
   &__trigger {
     height: 3rem;
     width: 3rem;
-    margin: 0 2rem 2rem 2rem;
+    margin: 0rem 1rem 1rem 1rem;
 
     &--playing {
-      background-color: blue;
+      background-color: #367eff;
+    }
+
+    @include tablet {
+      margin: 0 2rem 2rem 2rem;
+    }
+
+    @include desktop {
+      height: 4rem;
+      width: 4rem;
+      margin: 0 2rem 2rem 2rem;
     }
   }
 

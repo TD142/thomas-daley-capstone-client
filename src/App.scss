@@ -1,3 +1,5 @@
+@use "./styles/partials/resets.scss" as *;
+
 .react-dat-gui {
   position: fixed;
   right: 16px;

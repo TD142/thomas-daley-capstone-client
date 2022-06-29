@@ -1,7 +1,16 @@
+@use "../../styles/partials/mixins" as *;
+
 .canvas {
   background: black;
-  height: 35rem;
-  background: black;
+  height: 60vw;
+
+  @include tablet {
+    height: 35rem;
+  }
+
+  // @include desktop {
+  //   height: 35rem;
+  //
 }
 
 .option {

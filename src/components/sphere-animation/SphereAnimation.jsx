@@ -6,7 +6,6 @@ import Texture from "../../assets/images/TexturesCom_FloorMetalGrate_header9.jpg
 import { DoubleSide } from "three";
 
 const SphereAnimation = ({ horizonSettings }) => {
-  console.log(horizonSettings);
   const mesh = useRef();
 
   useFrame((state, delta) => {

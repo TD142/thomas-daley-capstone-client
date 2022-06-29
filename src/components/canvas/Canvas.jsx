@@ -1,5 +1,5 @@
 import React from "react";
-import { Canvas, extend } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import SphereAnimation from "../sphere-animation/SphereAnimation.jsx";
 import { OrbitControls } from "@react-three/drei";
 import "./Canvas.scss";
@@ -7,6 +7,8 @@ import { Suspense } from "react";
 import BoxAnimation from "../box-animation/BoxAnimation.jsx";
 import CircleAnimation from "../circle-animation/CircleAnimation.jsx";
 import { useState } from "react";
+import PlaneAnimation from "../plane-animation/PlaneAnimation.jsx";
+import TorusAnimation from "../torus-animation/TorusAnimation.jsx";
 
 import DatGui, { DatColor } from "react-dat-gui";
 
@@ -15,18 +17,16 @@ const Scene = () => {
   const [horizonSettings, setHorizonSettings] = useState({
     animationColor: "#8b0000",
   });
-  const [pulseSettings, setpulseSettings] = useState({
+  const [pulseSettings, setPulseSettings] = useState({
     animationColor: "#ADD8E6",
+  });
+  const [vortexSettings, setVortexSettings] = useState({
+    animationColor: "#4DBEBE",
   });
 
   const handleChange = async (event) => {
     setCurrentAnimation(event.target.value);
   };
-
-  // const handleUpdate = (data) => {
-  //   setDatGuiData(data);
-  //   console.log(data);
-  // };
 
   return (
     <div>
@@ -38,17 +38,24 @@ const Scene = () => {
         <div>loading...</div>
       )}
       {currentAnimation === "Pulse" ? (
-        <DatGui data={pulseSettings} onUpdate={setpulseSettings}>
+        <DatGui data={pulseSettings} onUpdate={setPulseSettings}>
           <DatColor path="animationColor" label="animationColor"></DatColor>
         </DatGui>
       ) : (
         <div>loading...</div>
       )}
-      {/* <h3 className="option__title">ANIMATION</h3> */}
+      {currentAnimation === "Vortex" ? (
+        <DatGui data={vortexSettings} onUpdate={setVortexSettings}>
+          <DatColor path="animationColor" label="animationColor"></DatColor>
+        </DatGui>
+      ) : (
+        <div>loading...</div>
+      )}
       <div className="animation-dropdown__container">
         <select className="animation-dropdown" onChange={handleChange}>
           <option value="Horizon">Horizon</option>
           <option value="Pulse">Pulse</option>
+          <option value="Vortex">Vortex</option>
         </select>
       </div>
       <div className="canvas">
@@ -65,10 +72,17 @@ const Scene = () => {
             ) : (
               <></>
             )}
-
             {currentAnimation === "Pulse" ? (
               <>
                 <CircleAnimation pulseSettings={pulseSettings} />
+              </>
+            ) : (
+              <></>
+            )}
+            {currentAnimation === "Vortex" ? (
+              <>
+                <PlaneAnimation vortexSettings={vortexSettings} />
+                <TorusAnimation />
               </>
             ) : (
               <></>
