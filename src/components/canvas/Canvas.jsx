@@ -10,6 +10,7 @@ import { useState } from "react";
 import PlaneAnimation from "../plane-animation/PlaneAnimation.jsx";
 import TorusAnimation from "../torus-animation/TorusAnimation.jsx";
 import { PositionalAudio } from "@react-three/drei";
+import Sampler from "../sampler/Sampler.jsx";
 
 import DatGui, { DatColor } from "react-dat-gui";
 
@@ -29,13 +30,21 @@ const Scene = ({ sounds }) => {
     setCurrentAnimation(event.target.value);
   };
 
-  const sound = useRef();
+  const bassSound = useRef();
+  const padSound1 = useRef();
+  const padSound2 = useRef();
+  const leadSound1 = useRef();
+  const leadSound2 = useRef();
+  const leadSound3 = useRef();
+  const droneSound = useRef();
+  const arpSound = useRef();
 
-  const playSound = () => {
+  const triggerAudio = (event, sound) => {
     if (sound.current.isPlaying === false) {
       sound.current.gain.gain.value = 1;
 
       sound.current.play();
+      event.target.classList.add("sampler__trigger--playing");
     } else {
       const fadeAudio = setInterval(() => {
         if (sound.current.gain.gain.value > 0) {
@@ -44,36 +53,30 @@ const Scene = ({ sounds }) => {
 
         if (sound.current.gain.gain.value < 0.003) {
           clearInterval(fadeAudio);
+          event.target.classList.remove("sampler__trigger--playing");
           sound.current.stop();
         }
       }, 200);
     }
   };
-  // console.log(sound.current.gain.gain.value);
+
   return (
     <div>
-      <button onClick={playSound}></button>
       {currentAnimation === "Horizon" ? (
         <DatGui data={horizonSettings} onUpdate={setHorizonSettings}>
           <DatColor path="animationColor" label="animationColor"></DatColor>
         </DatGui>
-      ) : (
-        <div>loading...</div>
-      )}
+      ) : null}
       {currentAnimation === "Pulse" ? (
         <DatGui data={pulseSettings} onUpdate={setPulseSettings}>
           <DatColor path="animationColor" label="animationColor"></DatColor>
         </DatGui>
-      ) : (
-        <div>loading...</div>
-      )}
+      ) : null}
       {currentAnimation === "Vortex" ? (
         <DatGui data={vortexSettings} onUpdate={setVortexSettings}>
           <DatColor path="animationColor" label="animationColor"></DatColor>
         </DatGui>
-      ) : (
-        <div>loading...</div>
-      )}
+      ) : null}
       <div className="animation-dropdown__container">
         <select className="animation-dropdown" onChange={handleChange}>
           <option value="Horizon">Horizon</option>
@@ -87,19 +90,68 @@ const Scene = ({ sounds }) => {
           <ambientLight intensity={0.5} />
           <directionalLight position={[-2, 10, 2]} intensity={0.5} />
           <Suspense fallback={null}>
+            <PositionalAudio
+              url={sounds.arp}
+              distance={10}
+              loop
+              ref={arpSound}
+            />
+            <PositionalAudio
+              url={sounds.bass}
+              distance={10}
+              loop
+              ref={bassSound}
+            />
+            <PositionalAudio
+              url={sounds.pad1}
+              distance={10}
+              loop
+              ref={padSound1}
+            />
+            <PositionalAudio
+              url={sounds.pad2}
+              distance={10}
+              loop
+              ref={padSound2}
+            />
+            <PositionalAudio
+              url={sounds.lead1}
+              distance={10}
+              loop
+              ref={leadSound1}
+            />
+            <PositionalAudio
+              url={sounds.lead2}
+              distance={10}
+              loop
+              ref={leadSound2}
+            />
+            <PositionalAudio
+              url={sounds.lead3}
+              distance={10}
+              loop
+              ref={leadSound3}
+            />
+            <PositionalAudio
+              url={sounds.drone}
+              distance={10}
+              loop
+              ref={droneSound}
+            />
             {currentAnimation === "Horizon" ? (
               <>
                 <SphereAnimation
-                  sound={sound}
+                  arpSound={arpSound}
+                  padSound1={padSound1}
+                  bassSound={bassSound}
+                  padSound2={padSound2}
+                  leadSound1={leadSound1}
+                  leadSound2={leadSound2}
+                  leadSound3={leadSound3}
+                  droneSound={droneSound}
                   horizonSettings={horizonSettings}
                 />
                 <BoxAnimation />
-                <PositionalAudio
-                  url={sounds.arp}
-                  distance={10}
-                  loop
-                  ref={sound}
-                />
               </>
             ) : (
               <></>
@@ -120,16 +172,19 @@ const Scene = ({ sounds }) => {
               <></>
             )}
           </Suspense>
-          {/* <Stars
-            radius={100} // Radius of the inner sphere (default=100)
-            depth={50} // Depth of area where stars should fit (default=50)
-            count={1000} // Amount of stars (default=5000)
-            factor={6} // Size factor (default=4)
-            saturation={0} // Saturation 0-1 (default=0)
-            fade // Faded dots (default=false) */}
-          {/* /> */}
         </Canvas>
       </div>
+      <Sampler
+        triggerAudio={triggerAudio}
+        arpSound={arpSound}
+        bassSound={bassSound}
+        padSound1={padSound1}
+        padSound2={padSound2}
+        leadSound1={leadSound1}
+        leadSound2={leadSound2}
+        leadSound3={leadSound3}
+        droneSound={droneSound}
+      />
     </div>
   );
 };

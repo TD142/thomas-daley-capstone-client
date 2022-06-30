@@ -1,5 +1,5 @@
 import Main from "../../main/Main";
-import Sampler from "../../sampler/Sampler.jsx";
+
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
@@ -19,7 +19,6 @@ const HomePage = () => {
   return (
     <div>
       <Main sounds={sounds} />
-      <Sampler sounds={sounds} />
     </div>
   );
 };

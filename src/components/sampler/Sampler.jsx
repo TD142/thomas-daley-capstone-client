@@ -3,81 +3,43 @@ import * as THREE from "three";
 import "./Sampler.scss";
 import { useEffect } from "react";
 
-const Sampler = ({ sounds }) => {
-  const bass = new Audio(sounds.bass);
-  const arp = new Audio(sounds.arp);
-  const pad1 = new Audio(sounds.pad1);
-  const pad2 = new Audio(sounds.pad2);
-  const lead1 = new Audio(sounds.lead1);
-  const lead2 = new Audio(sounds.lead2);
-  const lead3 = new Audio(sounds.lead3);
-  const drone = new Audio(sounds.drone);
-
-  // arp.classList.setAttribute("id", "audio");
-  // console.log(arp);
-
-  // // const arpVisual = useRef(arp);
-  // const analyzer = useRef();
-
-  // // console.log(arpVisual.current);
-
-  // useEffect(() => {
-  //   if ((setmusicPlaying = true)) {
-  //     analyzer.current = new THREE.AudioAnalyser(arp, 128);
-  //   }
-  // });
-
-  const triggerAudio = (event, sound) => {
-    if (sound.paused === true) {
-      sound.volume = 1;
-      sound.currentTime = 0;
-      sound.play();
-      sound.loop = true;
-      event.target.classList.add("sampler__trigger--playing");
-    } else {
-      const fadeAudio = setInterval(() => {
-        if (sound.volume && sound.currentTime > 0) {
-          sound.volume -= 0.1;
-        }
-
-        if (sound.volume < 0.003) {
-          clearInterval(fadeAudio);
-          sound.pause();
-          event.target.classList.remove("sampler__trigger--playing");
-          sound.currentTime = 0;
-        }
-      }, 200);
-    }
-
-    console.log();
-  };
-
+const Sampler = ({
+  triggerAudio,
+  arpSound,
+  bassSound,
+  padSound1,
+  padSound2,
+  leadSound1,
+  leadSound2,
+  leadSound3,
+  droneSound,
+}) => {
   return (
     <div className="sampler">
       {/* <h2 className="sampler__header">PLAY</h2> */}
       <div className="sampler__container">
         <button
           onClick={(event) => {
-            triggerAudio(event, pad1);
+            triggerAudio(event, padSound1);
           }}
           className="sampler__trigger"
         ></button>
 
         <button
           onClick={(event) => {
-            triggerAudio(event, lead2);
+            triggerAudio(event, leadSound2);
           }}
           className="sampler__trigger"
         ></button>
         <button
           onClick={(event) => {
-            triggerAudio(event, pad2);
+            triggerAudio(event, padSound2);
           }}
           className="sampler__trigger"
         ></button>
         <button
           onClick={(event) => {
-            triggerAudio(event, bass);
+            triggerAudio(event, bassSound);
           }}
           className="sampler__trigger"
         ></button>
@@ -85,25 +47,25 @@ const Sampler = ({ sounds }) => {
       <div className="sampler__container">
         <button
           onClick={(event) => {
-            triggerAudio(event, lead1);
+            triggerAudio(event, leadSound1);
           }}
           className="sampler__trigger"
         ></button>
         <button
           onClick={(event) => {
-            triggerAudio(event, drone);
+            triggerAudio(event, droneSound);
           }}
           className="sampler__trigger"
         ></button>
         <button
           onClick={(event) => {
-            triggerAudio(event, arp);
+            triggerAudio(event, arpSound);
           }}
           className="sampler__trigger"
         ></button>
         <button
           onClick={(event) => {
-            triggerAudio(event, lead3);
+            triggerAudio(event, leadSound3);
           }}
           className="sampler__trigger"
         ></button>
