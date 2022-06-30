@@ -2,12 +2,12 @@ import React from "react";
 import Scene from "../canvas/Canvas";
 import "./Main.scss";
 
-const Main = () => {
+const Main = ({ sounds }) => {
   return (
     <div>
       <main className="main">
         <h1 className="page-title">PRAYER</h1>
-        <Scene />
+        <Scene sounds={sounds} />
       </main>
     </div>
   );

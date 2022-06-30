@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import * as THREE from "three";
 import "./Sampler.scss";
+import { useEffect } from "react";
 
 const Sampler = ({ sounds }) => {
-  const [soundPlaying, setSoundPlaying] = useState(false);
-
   const bass = new Audio(sounds.bass);
   const arp = new Audio(sounds.arp);
   const pad1 = new Audio(sounds.pad1);
@@ -12,6 +12,20 @@ const Sampler = ({ sounds }) => {
   const lead2 = new Audio(sounds.lead2);
   const lead3 = new Audio(sounds.lead3);
   const drone = new Audio(sounds.drone);
+
+  // arp.classList.setAttribute("id", "audio");
+  // console.log(arp);
+
+  // // const arpVisual = useRef(arp);
+  // const analyzer = useRef();
+
+  // // console.log(arpVisual.current);
+
+  // useEffect(() => {
+  //   if ((setmusicPlaying = true)) {
+  //     analyzer.current = new THREE.AudioAnalyser(arp, 128);
+  //   }
+  // });
 
   const triggerAudio = (event, sound) => {
     if (sound.paused === true) {

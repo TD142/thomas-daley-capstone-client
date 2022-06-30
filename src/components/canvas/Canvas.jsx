@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import SphereAnimation from "../sphere-animation/SphereAnimation.jsx";
 import { OrbitControls } from "@react-three/drei";
@@ -9,10 +9,11 @@ import CircleAnimation from "../circle-animation/CircleAnimation.jsx";
 import { useState } from "react";
 import PlaneAnimation from "../plane-animation/PlaneAnimation.jsx";
 import TorusAnimation from "../torus-animation/TorusAnimation.jsx";
+import { PositionalAudio } from "@react-three/drei";
 
 import DatGui, { DatColor } from "react-dat-gui";
 
-const Scene = () => {
+const Scene = ({ sounds }) => {
   const [currentAnimation, setCurrentAnimation] = useState("Horizon");
   const [horizonSettings, setHorizonSettings] = useState({
     animationColor: "#8b0000",
@@ -28,8 +29,30 @@ const Scene = () => {
     setCurrentAnimation(event.target.value);
   };
 
+  const sound = useRef();
+
+  const playSound = () => {
+    if (sound.current.isPlaying === false) {
+      sound.current.gain.gain.value = 1;
+
+      sound.current.play();
+    } else {
+      const fadeAudio = setInterval(() => {
+        if (sound.current.gain.gain.value > 0) {
+          sound.current.gain.gain.value -= 0.1;
+        }
+
+        if (sound.current.gain.gain.value < 0.003) {
+          clearInterval(fadeAudio);
+          sound.current.stop();
+        }
+      }, 200);
+    }
+  };
+  // console.log(sound.current.gain.gain.value);
   return (
     <div>
+      <button onClick={playSound}></button>
       {currentAnimation === "Horizon" ? (
         <DatGui data={horizonSettings} onUpdate={setHorizonSettings}>
           <DatColor path="animationColor" label="animationColor"></DatColor>
@@ -66,8 +89,17 @@ const Scene = () => {
           <Suspense fallback={null}>
             {currentAnimation === "Horizon" ? (
               <>
-                <SphereAnimation horizonSettings={horizonSettings} />
+                <SphereAnimation
+                  sound={sound}
+                  horizonSettings={horizonSettings}
+                />
                 <BoxAnimation />
+                <PositionalAudio
+                  url={sounds.arp}
+                  distance={10}
+                  loop
+                  ref={sound}
+                />
               </>
             ) : (
               <></>

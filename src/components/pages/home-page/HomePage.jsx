@@ -18,7 +18,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <Main />
+      <Main sounds={sounds} />
       <Sampler sounds={sounds} />
     </div>
   );
