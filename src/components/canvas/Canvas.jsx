@@ -158,14 +158,34 @@ const Scene = ({ sounds }) => {
             )}
             {currentAnimation === "Pulse" ? (
               <>
-                <CircleAnimation pulseSettings={pulseSettings} />
+                <CircleAnimation
+                  arpSound={arpSound}
+                  padSound1={padSound1}
+                  bassSound={bassSound}
+                  padSound2={padSound2}
+                  leadSound1={leadSound1}
+                  leadSound2={leadSound2}
+                  leadSound3={leadSound3}
+                  droneSound={droneSound}
+                  pulseSettings={pulseSettings}
+                />
               </>
             ) : (
               <></>
             )}
             {currentAnimation === "Vortex" ? (
               <>
-                <PlaneAnimation vortexSettings={vortexSettings} />
+                <PlaneAnimation
+                  arpSound={arpSound}
+                  padSound1={padSound1}
+                  bassSound={bassSound}
+                  padSound2={padSound2}
+                  leadSound1={leadSound1}
+                  leadSound2={leadSound2}
+                  leadSound3={leadSound3}
+                  droneSound={droneSound}
+                  vortexSettings={vortexSettings}
+                />
                 <TorusAnimation />
               </>
             ) : (

@@ -48,7 +48,7 @@ const SphereAnimation = ({
     let lead1Frequency = lead1Analyser.current.getAverageFrequency();
     let lead2Frequency = lead2Analyser.current.getAverageFrequency();
     let lead3Frequency = lead3Analyser.current.getAverageFrequency();
-    let bassFrequency = lead3Analyser.current.getAverageFrequency();
+    let bassFrequency = bassAnalyser.current.getAverageFrequency();
     let droneFrequency = droneAnalyser.current.getAverageFrequency();
 
     mesh.current.scale.x =
@@ -58,10 +58,21 @@ const SphereAnimation = ({
         arpFrequency / 300 +
         pad2Frequency / 200 +
         lead1Frequency / 200 +
-        lead2Frequency / 500 +
+        lead2Frequency / 200 +
         lead3Frequency / 200 +
-        droneFrequency / 500 +
+        droneFrequency / 200 +
         bassFrequency / 200;
+
+    // mesh.current.position.z =
+    //   pad1Frequency / 200 +
+    //   arpFrequency / 300 +
+    //   pad2Frequency / 200 +
+    //   lead1Frequency / 200 +
+    //   lead2Frequency / 200 +
+    //   lead3Frequency / 200 +
+    //   droneFrequency / 200 +
+    //   bassFrequency / 200;
+
     console.log(mesh.current);
   });
   const colourMap = useLoader(TextureLoader, Texture);
