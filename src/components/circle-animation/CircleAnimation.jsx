@@ -60,13 +60,13 @@ const CircleAnimation = ({
       droneFrequency / 200 +
       bassFrequency / 200;
     console.log(mesh.current);
-    mesh.current.material.color.setRGB(
-      arpFrequency / 2,
-      0,
-      0 + pad1Frequency / 2,
-      0,
-      0
-    );
+    // mesh.current.material.color.setRGB(
+    //   arpFrequency / 2,
+    //   0,
+    //   0 + pad1Frequency / 2,
+    //   0,
+    //   0
+    // );
   });
 
   return (

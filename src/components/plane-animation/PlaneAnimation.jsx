@@ -51,7 +51,7 @@ const PlaneAnimation = ({
 
     mesh.current.position.z =
       pad1Frequency / 200 +
-      arpFrequency / 300 +
+      arpFrequency / 100 +
       pad2Frequency / 200 +
       lead1Frequency / 200 +
       lead2Frequency / 200 +
