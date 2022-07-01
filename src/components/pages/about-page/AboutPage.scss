@@ -1,0 +1,36 @@
+@use "../../../styles/partials/mixins" as *;
+.about {
+  &__container {
+    width: fit-content;
+
+    @include desktop {
+      margin: 0 auto;
+      width: 60rem;
+    }
+  }
+  &__header {
+    width: fit-content;
+    margin: 2rem auto;
+    @include tablet {
+      font-size: 2rem;
+    }
+  }
+
+  &__text {
+    margin: 0 2rem 0 2rem;
+    @include tablet {
+      font-size: 1.1rem;
+    }
+  }
+
+  &__secondary {
+    &-header {
+      margin: 3rem 2rem 1rem 2rem;
+    }
+
+    &-text {
+      margin: 0 2rem 0 2rem;
+      font-size: 1.1rem;
+    }
+  }
+}

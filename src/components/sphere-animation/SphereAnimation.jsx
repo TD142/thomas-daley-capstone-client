@@ -1,9 +1,7 @@
 import { useRef } from "react";
 import { useLoader } from "@react-three/fiber";
 import { useFrame } from "@react-three/fiber";
-import { TextureLoader } from "three";
 import * as THREE from "three";
-import Texture from "../../assets/images/TexturesCom_FloorMetalGrate_header9.jpg";
 import { DoubleSide } from "three";
 import { useEffect } from "react";
 
@@ -72,10 +70,7 @@ const SphereAnimation = ({
     //   lead3Frequency / 200 +
     //   droneFrequency / 200 +
     //   bassFrequency / 200;
-
-    console.log(mesh.current);
   });
-  const colourMap = useLoader(TextureLoader, Texture);
 
   return (
     <mesh ref={mesh}>
