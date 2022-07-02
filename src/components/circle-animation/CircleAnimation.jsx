@@ -59,7 +59,7 @@ const CircleAnimation = ({
       lead3Frequency / 200 +
       droneFrequency / 200 +
       bassFrequency / 200;
-    console.log(mesh.current);
+
     // mesh.current.material.color.setRGB(
     //   arpFrequency / 2,
     //   0,

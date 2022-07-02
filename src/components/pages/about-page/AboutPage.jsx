@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import "./AboutPage.scss";
 import { OrbitControls } from "@react-three/drei";
 import WaterAnimation from "../../water-animation/WaterAnimation";
+import OceanAnimation from "../../ocean-animation/OceanAnimation";
 
 const AboutPage = () => {
   return (
@@ -28,16 +29,16 @@ const AboutPage = () => {
         </p>
       </section>
       <div className="canvas">
-        <Canvas>
-          <OrbitControls enableZoom={false} />
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[-2, 10, 2]} intensity={0.5} />
-          {/* <mesh>
-            <sphereGeometry args={[1.5, 60, 60]} />
-            <meshBasicMaterial wireframe={true} />
-          </mesh> */}
-
-          <WaterAnimation />
+        <Canvas
+          camera={{
+            rotation: [5, 6, 0],
+            position: [2, 20, 400],
+            // fov: 55,
+            // near: 1,
+            // far: 1000,
+          }}
+        >
+          <OceanAnimation />
         </Canvas>
       </div>
     </div>
