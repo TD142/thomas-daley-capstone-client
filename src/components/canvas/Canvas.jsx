@@ -11,6 +11,7 @@ import PlaneAnimation from "../plane-animation/PlaneAnimation.jsx";
 import TorusAnimation from "../torus-animation/TorusAnimation.jsx";
 import { PositionalAudio } from "@react-three/drei";
 import Sampler from "../sampler/Sampler.jsx";
+import OceanAnimation from "../ocean-animation/OceanAnimation.jsx";
 
 import DatGui, { DatColor } from "react-dat-gui";
 
@@ -45,11 +46,13 @@ const Scene = ({ sounds, handleSoundChange }) => {
       const fadeAudio = setInterval(() => {
         if (sound.current.gain.gain.value > 0) {
           sound.current.gain.gain.value -= 0.1;
+          event.target.classList.add("sampler__trigger--fading");
         }
 
         if (sound.current.gain.gain.value < 0.003) {
           clearInterval(fadeAudio);
           event.target.classList.remove("sampler__trigger--playing");
+          event.target.classList.remove("sampler__trigger--fading");
           sound.current.stop();
         }
       }, 200);
@@ -210,6 +213,8 @@ const Scene = ({ sounds, handleSoundChange }) => {
                   pulseSettings={pulseSettings}
                   id={sounds.id}
                 />
+
+                <OceanAnimation />
               </>
             ) : (
               <></>

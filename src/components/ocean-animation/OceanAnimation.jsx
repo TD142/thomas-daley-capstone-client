@@ -22,7 +22,7 @@ const OceanAnimation = () => {
       textureHeight: 500,
       waterNormals,
       sunColor: "white",
-      waterColor: "lightblue",
+      waterColor: "#B7F0F4",
 
       fog: false,
       format: gl.encoding,

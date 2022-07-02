@@ -15,6 +15,30 @@
 
     &--playing {
       background-color: #1f99cd;
+      border: 2px solid white;
+    }
+
+    &--fading {
+      animation: fading 0.8s infinite;
+    }
+
+    @keyframes fading {
+      0% {
+        border: 2px solid red;
+      }
+      49% {
+        border: 2px solid white;
+      }
+      50% {
+        border: 2px solid red;
+      }
+
+      99% {
+        border: 2px solid white;
+      }
+      100% {
+        color: #000;
+      }
     }
 
     @include tablet {
