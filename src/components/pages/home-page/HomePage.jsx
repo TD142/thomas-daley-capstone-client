@@ -12,13 +12,23 @@ const HomePage = () => {
     setSounds(data);
   };
 
+  const handleSoundChange = async (event) => {
+    console.log(event);
+    const genre = event.target.value;
+    const { data } = await axios.get(
+      `http://localhost:8080/${genre.toLowerCase()}`
+    );
+    setSounds(data);
+  };
+
   useEffect(() => {
     getSounds();
+    console.log(sounds);
   }, []);
 
   return (
     <div>
-      <Main sounds={sounds} />
+      <Main handleSoundChange={handleSoundChange} sounds={sounds} />
     </div>
   );
 };

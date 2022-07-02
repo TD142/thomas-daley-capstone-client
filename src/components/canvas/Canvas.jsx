@@ -14,7 +14,7 @@ import Sampler from "../sampler/Sampler.jsx";
 
 import DatGui, { DatColor } from "react-dat-gui";
 
-const Scene = ({ sounds }) => {
+const Scene = ({ sounds, handleSoundChange }) => {
   const [currentAnimation, setCurrentAnimation] = useState("Horizon");
   const [horizonSettings, setHorizonSettings] = useState({
     animationColor: "#8b0000",
@@ -149,6 +149,7 @@ const Scene = ({ sounds }) => {
                   leadSound2={leadSound2}
                   leadSound3={leadSound3}
                   droneSound={droneSound}
+                  id={sounds.id}
                   horizonSettings={horizonSettings}
                 />
                 <BoxAnimation />
@@ -168,6 +169,7 @@ const Scene = ({ sounds }) => {
                   leadSound3={leadSound3}
                   droneSound={droneSound}
                   pulseSettings={pulseSettings}
+                  id={sounds.id}
                 />
               </>
             ) : (
@@ -196,6 +198,7 @@ const Scene = ({ sounds }) => {
       </div>
       <Sampler
         triggerAudio={triggerAudio}
+        handleSoundChange={handleSoundChange}
         arpSound={arpSound}
         bassSound={bassSound}
         padSound1={padSound1}

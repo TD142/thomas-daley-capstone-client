@@ -15,13 +15,13 @@ const OceanAnimation = () => {
   const gl = useThree((state) => state.gl);
   const waterNormals = useLoader(THREE.TextureLoader, Texture);
   waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
-  const geom = useMemo(() => new THREE.PlaneGeometry(1000, 1000), []);
+  const geom = useMemo(() => new THREE.PlaneGeometry(10000, 10000), []);
   const config = useMemo(
     () => ({
       textureWidth: 512,
       textureHeight: 500,
       waterNormals,
-      sunColor: "blue",
+      sunColor: "white",
       waterColor: "lightblue",
 
       fog: false,

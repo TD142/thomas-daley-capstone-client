@@ -21,7 +21,24 @@
 }
 
 .animation-dropdown {
-  background-color: white;
+  background-color: #1f99cd;
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  background-size: auto 50%;
+  border-radius: 2px;
+  border: none;
+  color: #ffffff;
+  padding: 10px 10px 10px 10px;
+  // disable default appearance
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  &::-ms-expand {
+    display: none;
+  }
+
   align-self: flex-end;
 
   &__container {

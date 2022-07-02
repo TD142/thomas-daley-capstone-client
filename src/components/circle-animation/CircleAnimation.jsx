@@ -15,6 +15,7 @@ const CircleAnimation = ({
   leadSound3,
   droneSound,
   bassSound,
+  id,
 }) => {
   const mesh = useRef();
 
@@ -50,15 +51,33 @@ const CircleAnimation = ({
     let bassFrequency = bassAnalyser.current.getAverageFrequency();
     let droneFrequency = droneAnalyser.current.getAverageFrequency();
 
-    mesh.current.position.z =
-      pad1Frequency / 200 +
-      arpFrequency / 300 +
-      pad2Frequency / 200 +
-      lead1Frequency / 200 +
-      lead2Frequency / 200 +
-      lead3Frequency / 200 +
-      droneFrequency / 200 +
-      bassFrequency / 200;
+    if (id === "1") {
+      mesh.current.scale.x =
+        mesh.current.scale.y =
+        mesh.current.scale.z =
+          pad1Frequency / 300 +
+          arpFrequency / 300 +
+          pad2Frequency / 200 +
+          lead1Frequency / 300 +
+          lead2Frequency / 200 +
+          lead3Frequency / 200 +
+          droneFrequency / 500 +
+          bassFrequency / 200;
+    }
+
+    if (id === "2") {
+      mesh.current.scale.x =
+        mesh.current.scale.y =
+        mesh.current.scale.z =
+          pad1Frequency / 200 +
+          arpFrequency / 300 +
+          pad2Frequency / 200 +
+          lead1Frequency / 200 +
+          lead2Frequency / 200 +
+          lead3Frequency / 200 +
+          droneFrequency / 50 +
+          bassFrequency / 200;
+    }
 
     // mesh.current.material.color.setRGB(
     //   arpFrequency / 2,
