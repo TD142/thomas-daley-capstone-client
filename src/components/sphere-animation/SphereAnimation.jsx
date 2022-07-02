@@ -68,14 +68,14 @@ const SphereAnimation = ({
       mesh.current.scale.x =
         mesh.current.scale.y =
         mesh.current.scale.z =
-          pad1Frequency / 200 +
-          arpFrequency / 300 +
-          pad2Frequency / 200 +
-          lead1Frequency / 200 +
-          lead2Frequency / 200 +
-          lead3Frequency / 200 +
-          droneFrequency / 50 +
-          bassFrequency / 200;
+          pad1Frequency / 60 +
+          arpFrequency / 60 +
+          pad2Frequency / 60 +
+          lead1Frequency / 60 +
+          lead2Frequency / 50 +
+          lead3Frequency / 50 +
+          droneFrequency / 100 +
+          bassFrequency / 100;
     }
   });
 

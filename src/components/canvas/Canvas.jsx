@@ -26,10 +26,6 @@ const Scene = ({ sounds, handleSoundChange }) => {
     animationColor: "#4DBEBE",
   });
 
-  const handleChange = async (event) => {
-    setCurrentAnimation(event.target.value);
-  };
-
   const bassSound = useRef();
   const padSound1 = useRef();
   const padSound2 = useRef();
@@ -58,6 +54,49 @@ const Scene = ({ sounds, handleSoundChange }) => {
         }
       }, 200);
     }
+  };
+
+  const handleChange = async (event) => {
+    setCurrentAnimation(event.target.value);
+  };
+
+  const handleBankChange = () => {
+    if (bassSound.current.isPlaying) {
+      bassSound.current.stop();
+    }
+
+    if (padSound1.current.isPlaying) {
+      padSound1.current.stop();
+    }
+
+    if (padSound2.current.isPlaying) {
+      padSound2.current.stop();
+    }
+
+    if (leadSound1.current.isPlaying) {
+      leadSound1.current.stop();
+    }
+
+    if (leadSound2.current.isPlaying) {
+      leadSound2.current.stop();
+    }
+    if (leadSound3.current.isPlaying) {
+      leadSound3.current.stop();
+    }
+    if (droneSound.current.isPlaying) {
+      droneSound.current.stop();
+    }
+    if (arpSound.current.isPlaying) {
+      arpSound.current.stop();
+    }
+
+    const button = document.querySelectorAll("button");
+
+    button.forEach((item) => {
+      console.log(item.className);
+      if (item.className === "sampler__trigger sampler__trigger--playing")
+        item.classList.remove("sampler__trigger--playing");
+    });
   };
 
   return (
@@ -199,6 +238,7 @@ const Scene = ({ sounds, handleSoundChange }) => {
       <Sampler
         triggerAudio={triggerAudio}
         handleSoundChange={handleSoundChange}
+        handleBankChange={handleBankChange}
         arpSound={arpSound}
         bassSound={bassSound}
         padSound1={padSound1}

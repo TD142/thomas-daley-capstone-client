@@ -14,6 +14,7 @@ const Sampler = ({
   leadSound3,
   droneSound,
   handleSoundChange,
+  handleBankChange,
 }) => {
   return (
     <div className="sampler">
@@ -72,7 +73,13 @@ const Sampler = ({
         ></button>
       </div>
       <div className="sampler-dropdown__container ">
-        <select onChange={handleSoundChange} className="sampler-dropdown">
+        <select
+          onChange={(event) => {
+            handleSoundChange(event);
+            handleBankChange();
+          }}
+          className="sampler-dropdown"
+        >
           <option value="Atmospheric">Atmospheric</option>
           <option value="Hyacintho">Hyancintho</option>
         </select>

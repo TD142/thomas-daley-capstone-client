@@ -13,17 +13,17 @@ const HomePage = () => {
   };
 
   const handleSoundChange = async (event) => {
-    console.log(event);
     const genre = event.target.value;
     const { data } = await axios.get(
       `http://localhost:8080/${genre.toLowerCase()}`
     );
     setSounds(data);
+
+    const sounds = document.getElementsByClassName("sound");
   };
 
   useEffect(() => {
     getSounds();
-    console.log(sounds);
   }, []);
 
   return (
