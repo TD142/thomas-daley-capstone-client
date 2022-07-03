@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
+import { Link } from "react-router-dom";
 import "./AboutPage.scss";
-import { OrbitControls } from "@react-three/drei";
+
 import WaterAnimation from "../../water-animation/WaterAnimation";
 import OceanAnimation from "../../ocean-animation/OceanAnimation";
 
@@ -18,7 +18,7 @@ const AboutPage = () => {
         </p>
       </section>
 
-      <section className="about__container">
+      <section className="about__container about__container--border">
         <h2 className="about__secondary-header">About The Artist</h2>
         <p className="about__secondary-text">
           Prayer is a electronic musician focusing on the cinematic and
@@ -27,6 +27,22 @@ const AboutPage = () => {
           the world such as Dimensions Festival Croatia, and the Tate Modern
           London.
         </p>
+      </section>
+
+      <section className="about__container">
+        <h3>Listen</h3>
+        <div className="about__inner-container">
+          <a href="https://grade10.uk/">Grade 10</a>
+          <a href="https://hooversoundrecordings.bandcamp.com/album/a-love-so-true">
+            Hooversound
+          </a>
+          <a href="https://blackacrerecords.bandcamp.com/album/vital-ep">
+            Black Acre
+          </a>
+          <a href="https://open.spotify.com/artist/72A349ge66Ptp7xhaaRUTR">
+            spotify
+          </a>
+        </div>
       </section>
       <div className="canvas">
         <Canvas

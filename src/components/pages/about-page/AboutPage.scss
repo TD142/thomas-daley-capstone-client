@@ -2,10 +2,45 @@
 .about {
   &__container {
     width: fit-content;
+    margin: 0 auto;
+
+    > h3 {
+      text-align: center;
+      margin-top: 1.3rem;
+
+      @include tablet {
+        font-size: 1.3rem;
+      }
+    }
 
     @include desktop {
       margin: 0 auto;
       width: 60rem;
+    }
+
+    &--border {
+      border-bottom: 1px solid grey;
+    }
+  }
+
+  &__inner-container {
+    display: flex;
+    justify-content: space-between;
+    width: 20rem;
+
+    @include desktop {
+      margin: 0 auto;
+    }
+
+    > a {
+      margin-top: 0;
+      display: block;
+      font-size: 10px;
+      text-align: center;
+
+      @include tablet {
+        font-size: 12px;
+      }
     }
   }
   &__header {
@@ -18,21 +53,31 @@
 
   &__text {
     margin: 0 2rem 0 2rem;
+
     @include tablet {
       font-size: 1.1rem;
+      margin: 0 2.3rem 0 2.3rem;
     }
   }
 
   &__secondary {
     &-header {
       margin: 3rem 2rem 1rem 2rem;
+      @include tablet {
+        margin: 3rem 2.3rem 1rem 2.3rem;
+      }
     }
 
     &-text {
-      margin: 0 2rem 4rem 2rem;
+      margin: 0 2rem 3.5rem 2rem;
       @include tablet {
         font-size: 1.1rem;
+        margin: 0 2.3rem 4rem 2.3rem;
       }
     }
   }
+}
+
+a:nth-child(5) {
+  margin-bottom: 2rem;
 }

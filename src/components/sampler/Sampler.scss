@@ -1,5 +1,6 @@
 @use "../../styles//partials//mixins" as *;
 .sampler {
+  margin-top: 1rem;
   padding-bottom: 2rem;
   background: black;
 
@@ -97,7 +98,6 @@
 
   @include tablet {
     padding-bottom: 5rem;
-    margin-top: 1rem;
   }
 }
 
