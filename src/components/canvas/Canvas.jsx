@@ -109,35 +109,37 @@ const Scene = ({ sounds, handleSoundChange }) => {
 
   return (
     <div>
-      {currentAnimation === "Horizon" ? (
-        <div className="dat-gui">
-          <DatGui data={horizonSettings} onUpdate={setHorizonSettings}>
-            <DatColor path="animationColor" label="animationColor"></DatColor>
-          </DatGui>
-        </div>
-      ) : null}
-      {currentAnimation === "Pulse" ? (
-        <div className="dat-gui">
-          <DatGui data={pulseSettings} onUpdate={setPulseSettings}>
-            <DatColor path="animationColor" label="animationColor"></DatColor>
-          </DatGui>
-        </div>
-      ) : null}
-      {currentAnimation === "Vortex" ? (
-        <div className="dat-gui">
-          <DatGui data={vortexSettings} onUpdate={setVortexSettings}>
-            <DatColor path="animationColor" label="animationColor"></DatColor>
-          </DatGui>
-        </div>
-      ) : null}
-      <h1 className="page-title">PRAYER</h1>
       <div className="animation-dropdown__container">
+        {currentAnimation === "Horizon" ? (
+          <div className="dat-gui">
+            <DatGui data={horizonSettings} onUpdate={setHorizonSettings}>
+              <DatColor path="animationColor" label="animationColor"></DatColor>
+            </DatGui>
+          </div>
+        ) : null}
+        {currentAnimation === "Pulse" ? (
+          <div className="dat-gui">
+            <DatGui data={pulseSettings} onUpdate={setPulseSettings}>
+              <DatColor path="animationColor" label="animationColor"></DatColor>
+            </DatGui>
+          </div>
+        ) : null}
+        {currentAnimation === "Vortex" ? (
+          <div className="dat-gui">
+            <DatGui data={vortexSettings} onUpdate={setVortexSettings}>
+              <DatColor path="animationColor" label="animationColor"></DatColor>
+            </DatGui>
+          </div>
+        ) : null}
+        {/* <h1 className="page-title">PRAYER</h1> */}
+
         <select className="animation-dropdown" onChange={handleChange}>
           <option value="Horizon">Horizon</option>
           <option value="Pulse">Pulse</option>
           <option value="Vortex">Vortex</option>
         </select>
       </div>
+
       <div className="canvas">
         <Canvas>
           <OrbitControls enableZoom={false} />

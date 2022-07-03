@@ -40,20 +40,14 @@
     display: none;
   }
 
-  align-self: flex-end;
-
   &__container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: flex-end;
   }
 
   @include tablet {
     font-size: 12px;
     padding: 10px 10px 10px 10px;
   }
-}
-
-.dat-gui {
-  display: flex;
-  justify-content: flex-end;
 }

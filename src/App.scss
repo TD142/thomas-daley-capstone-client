@@ -1,5 +1,5 @@
 @use "./styles/partials/resets.scss" as *;
-
+@use "./styles/partials/mixins" as *;
 .react-dat-gui {
   top: 0;
   width: 280px;
@@ -42,7 +42,7 @@
 }
 .react-dat-gui .cr {
   display: block;
-  background-color: #1a1a1a;
+
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -55,10 +55,15 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 100%;
+  width: 13rem;
   padding: 1px 2px 1px 8px;
+
+  @include tablet {
+    width: 100%;
+  }
 }
 .react-dat-gui .cr .label-text {
+  font-size: 10px;
   width: 40%;
   min-width: 0;
   white-space: nowrap;
@@ -68,6 +73,10 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
+  @include tablet {
+    font-size: 12px;
+  }
 }
 .react-dat-gui .cr input[type="number"],
 .react-dat-gui .cr input[type="text"] {
@@ -188,6 +197,7 @@
   border-left: 5px solid #1a1a1a;
 }
 .react-dat-gui .cr.color .swatch {
+  font-size: 10px;
   text-align: center;
   font-weight: 700;
   color: #fff;
@@ -195,11 +205,15 @@
   padding: 2px 5px;
   border: 3px solid #1a1a1a;
   cursor: pointer;
+
+  @include tablet {
+    font-size: 12px;
+  }
 }
 .react-dat-gui .cr.color .popover {
   position: absolute;
   z-index: 2;
-  right: 5px;
+  left: 5px;
 }
 .react-dat-gui .cr.color .cover {
   position: fixed;
