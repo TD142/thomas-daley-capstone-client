@@ -57,12 +57,12 @@ const CircleAnimation = ({
         mesh.current.scale.z =
           pad1Frequency / 300 +
           arpFrequency / 300 +
-          pad2Frequency / 200 +
+          pad2Frequency / 300 +
           lead1Frequency / 300 +
-          lead2Frequency / 200 +
-          lead3Frequency / 200 +
+          lead2Frequency / 300 +
+          lead3Frequency / 300 +
           droneFrequency / 500 +
-          bassFrequency / 200;
+          bassFrequency / 300;
     }
 
     if (id === "2") {

@@ -1,12 +1,17 @@
+@use "../../styles/partials/mixins" as *;
 .nav {
   display: flex;
   justify-content: flex-end;
 }
 
 a {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 2rem auto;
   text-decoration: none;
   list-style: none;
   color: white;
+
+  @include tablet {
+    font-size: 2rem;
+  }
 }

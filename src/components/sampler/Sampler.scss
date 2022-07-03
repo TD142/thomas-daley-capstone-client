@@ -1,6 +1,6 @@
 @use "../../styles//partials//mixins" as *;
 .sampler {
-  padding-bottom: 5rem;
+  padding-bottom: 2rem;
   background: black;
 
   &__container {
@@ -8,10 +8,15 @@
     margin: 0 auto;
   }
 
+  &__inner-container {
+    display: inline-block;
+  }
+
   &__trigger {
+    position: relative;
     height: 3rem;
     width: 3rem;
-    margin: 0rem 1rem 1rem 1rem;
+    margin: 0rem 1rem 0 1rem;
 
     &--playing {
       background-color: #1f99cd;
@@ -42,13 +47,9 @@
     }
 
     @include tablet {
-      margin: 0 2rem 2rem 2rem;
-    }
-
-    @include desktop {
       height: 4rem;
       width: 4rem;
-      margin: 0 2rem 2rem 2rem;
+      margin: 0 2rem 0rem 2rem;
     }
   }
 
@@ -69,8 +70,9 @@
     border-radius: 2px;
     border: none;
     color: #ffffff;
-    padding: 10px 10px 10px 10px;
-    // disable default appearance
+    font-size: 10px;
+    padding: 8px 8px 8px 8px;
+    margin-top: 0.75rem;
     outline: none;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -86,9 +88,29 @@
       display: flex;
       justify-content: center;
     }
+
+    @include tablet {
+      font-size: 12px;
+      padding: 10px 10px 10px 10px;
+    }
+  }
+
+  @include tablet {
+    padding-bottom: 5rem;
+    margin-top: 1rem;
   }
 }
 
 option {
   text-align: center;
+}
+
+input {
+  display: block;
+  width: 3.5rem;
+  margin: 1rem auto;
+
+  @include tablet {
+    width: 5rem;
+  }
 }

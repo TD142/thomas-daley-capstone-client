@@ -28,7 +28,8 @@
   border-radius: 2px;
   border: none;
   color: #ffffff;
-  padding: 10px 10px 10px 10px;
+  font-size: 10px;
+  padding: 8px 8px 8px 8px;
   // disable default appearance
   outline: none;
   -moz-appearance: none;
@@ -45,4 +46,14 @@
     display: flex;
     justify-content: flex-end;
   }
+
+  @include tablet {
+    font-size: 12px;
+    padding: 10px 10px 10px 10px;
+  }
+}
+
+.dat-gui {
+  display: flex;
+  justify-content: flex-end;
 }

@@ -30,7 +30,9 @@
 
     &-text {
       margin: 0 2rem 4rem 2rem;
-      font-size: 1.1rem;
+      @include tablet {
+        font-size: 1.1rem;
+      }
     }
   }
 }
