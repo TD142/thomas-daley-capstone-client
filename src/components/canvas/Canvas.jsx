@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import SphereAnimation from "../sphere-animation/SphereAnimation.jsx";
 import { OrbitControls } from "@react-three/drei";
@@ -14,7 +14,6 @@ import Sampler from "../sampler/Sampler.jsx";
 import OceanAnimation from "../ocean-animation/OceanAnimation.jsx";
 
 import DatGui, { DatColor } from "react-dat-gui";
-import { ConvexObjectBreaker } from "three-stdlib/index.js";
 
 const Scene = ({ sounds, handleSoundChange }) => {
   const [currentAnimation, setCurrentAnimation] = useState("Horizon");
@@ -39,8 +38,6 @@ const Scene = ({ sounds, handleSoundChange }) => {
   const [volume7, setVolume7] = useState(1);
   const [volume8, setVolume8] = useState(1);
 
-  console.log(volume1);
-
   // Initalising ref for the sound and then giving it a name for clearer reference later on.
 
   const bassSound = useRef();
@@ -61,8 +58,6 @@ const Scene = ({ sounds, handleSoundChange }) => {
   arpSound.name = "arpSound";
 
   const triggerAudio = (event, sound) => {
-    console.log(sound.current);
-
     let { value } = sound.current.gain.gain;
 
     if (sound.current.isPlaying === false) {
@@ -151,7 +146,6 @@ const Scene = ({ sounds, handleSoundChange }) => {
     const button = document.querySelectorAll("button");
 
     button.forEach((item) => {
-      console.log(item.className);
       if (item.className === "sampler__trigger sampler__trigger--playing")
         item.classList.remove("sampler__trigger--playing");
     });
@@ -189,8 +183,6 @@ const Scene = ({ sounds, handleSoundChange }) => {
     if (sound.name === "leadSound3") {
       setVolume8(event.target.valueAsNumber);
     }
-
-    console.log(sound);
 
     sound.current.gain.gain.value = event.target.valueAsNumber;
   };

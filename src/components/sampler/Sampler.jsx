@@ -1,7 +1,4 @@
-import React, { useRef, useState } from "react";
-import * as THREE from "three";
 import "./Sampler.scss";
-import { useEffect } from "react";
 
 const Sampler = ({
   triggerAudio,

@@ -2,12 +2,12 @@
 .nav {
   display: flex;
   justify-content: flex-end;
-
+  border-top: 1px solid grey;
   width: 7rem;
-  margin: 1rem auto;
-
+  margin: 1.5rem auto;
   @include tablet {
     width: 12rem;
+    margin: 2rem auto;
   }
 }
 

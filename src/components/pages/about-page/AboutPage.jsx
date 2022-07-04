@@ -1,8 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { Link } from "react-router-dom";
 import "./AboutPage.scss";
-
-import WaterAnimation from "../../water-animation/WaterAnimation";
 import OceanAnimation from "../../ocean-animation/OceanAnimation";
 
 const AboutPage = () => {

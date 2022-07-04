@@ -1,7 +1,7 @@
 @use "../../styles//partials//mixins" as *;
 .sampler {
   margin-top: 1rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
   background: black;
 
   &__container {
@@ -97,7 +97,7 @@
   }
 
   @include tablet {
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
   }
 }
 

@@ -1,7 +1,5 @@
 import { useRef } from "react";
-import { useLoader } from "@react-three/fiber";
 import { useFrame } from "@react-three/fiber";
-import { TextureLoader } from "three";
 import { DoubleSide } from "three";
 
 const BoxAnimation = () => {

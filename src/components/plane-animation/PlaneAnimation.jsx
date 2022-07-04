@@ -38,7 +38,7 @@ const PlaneAnimation = ({
     bassAnalyser.current = new THREE.AudioAnalyser(bassSound.current, 128);
   }, []);
 
-  useFrame((state, delta) => {
+  useFrame(() => {
     mesh.current.rotation.y = 0;
     let arpFrequency = arpAnalyser.current.getAverageFrequency();
     let pad1Frequency = pad1Analyser.current.getAverageFrequency();

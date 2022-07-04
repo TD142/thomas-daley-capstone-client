@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import { useLoader } from "@react-three/fiber";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { DoubleSide } from "three";
