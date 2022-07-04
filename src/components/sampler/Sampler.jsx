@@ -16,19 +16,17 @@ const Sampler = ({
   handleSoundChange,
   handleBankChange,
   handleVolumeChange,
+  volume1,
+  volume2,
+  volume3,
+  volume4,
+  volume5,
+  volume6,
+  volume7,
+  volume8,
 }) => {
-  const [volume1, setVolume1] = useState(1);
-  const [volume2, setVolume2] = useState(1);
-  const [volume3, setVolume3] = useState(1);
-  const [volume4, setVolume4] = useState(1);
-  const [volume5, setVolume5] = useState(1);
-  const [volume6, setVolume6] = useState(1);
-  const [volume7, setVolume7] = useState(1);
-  const [volume8, setVolume8] = useState(1);
-
   return (
     <div className="sampler">
-      {/* <h2 className="sampler__header">PLAY</h2> */}
       <div className="sampler__container">
         <div className="sampler__inner-container">
           <button
@@ -44,7 +42,6 @@ const Sampler = ({
             step={0.02}
             value={volume1}
             onChange={(event) => {
-              setVolume1(event.target.valueAsNumber);
               handleVolumeChange(event, padSound1);
             }}
           />
@@ -63,7 +60,6 @@ const Sampler = ({
             step={0.02}
             value={volume2}
             onChange={(event) => {
-              setVolume2(event.target.valueAsNumber);
               handleVolumeChange(event, leadSound2);
             }}
           />
@@ -82,7 +78,6 @@ const Sampler = ({
             step={0.02}
             value={volume3}
             onChange={(event) => {
-              setVolume3(event.target.valueAsNumber);
               handleVolumeChange(event, padSound2);
             }}
           />
@@ -101,7 +96,6 @@ const Sampler = ({
             step={0.02}
             value={volume4}
             onChange={(event) => {
-              setVolume4(event.target.valueAsNumber);
               handleVolumeChange(event, bassSound);
             }}
           />
@@ -122,7 +116,6 @@ const Sampler = ({
             step={0.02}
             value={volume5}
             onChange={(event) => {
-              setVolume5(event.target.valueAsNumber);
               handleVolumeChange(event, leadSound1);
             }}
           />
@@ -141,7 +134,6 @@ const Sampler = ({
             step={0.02}
             value={volume6}
             onChange={(event) => {
-              setVolume6(event.target.valueAsNumber);
               handleVolumeChange(event, droneSound);
             }}
           />
@@ -160,7 +152,6 @@ const Sampler = ({
             step={0.02}
             value={volume7}
             onChange={(event) => {
-              setVolume7(event.target.valueAsNumber);
               handleVolumeChange(event, arpSound);
             }}
           />
@@ -179,7 +170,6 @@ const Sampler = ({
             step={0.02}
             value={volume8}
             onChange={(event) => {
-              setVolume8(event.target.valueAsNumber);
               handleVolumeChange(event, leadSound3);
             }}
           />

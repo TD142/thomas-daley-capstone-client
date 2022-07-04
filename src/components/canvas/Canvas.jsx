@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import SphereAnimation from "../sphere-animation/SphereAnimation.jsx";
 import { OrbitControls } from "@react-three/drei";
@@ -14,6 +14,7 @@ import Sampler from "../sampler/Sampler.jsx";
 import OceanAnimation from "../ocean-animation/OceanAnimation.jsx";
 
 import DatGui, { DatColor } from "react-dat-gui";
+import { ConvexObjectBreaker } from "three-stdlib/index.js";
 
 const Scene = ({ sounds, handleSoundChange }) => {
   const [currentAnimation, setCurrentAnimation] = useState("Horizon");
@@ -27,21 +28,73 @@ const Scene = ({ sounds, handleSoundChange }) => {
     animationColor: "#4DBEBE",
   });
 
+  // volume channels for each sound.
+
+  const [volume1, setVolume1] = useState(1);
+  const [volume2, setVolume2] = useState(1);
+  const [volume3, setVolume3] = useState(1);
+  const [volume4, setVolume4] = useState(1);
+  const [volume5, setVolume5] = useState(1);
+  const [volume6, setVolume6] = useState(1);
+  const [volume7, setVolume7] = useState(1);
+  const [volume8, setVolume8] = useState(1);
+
+  console.log(volume1);
+
+  // Initalising ref for the sound and then giving it a name for clearer reference later on.
+
   const bassSound = useRef();
+  bassSound.name = "bassSound";
   const padSound1 = useRef();
+  padSound1.name = "padSound1";
   const padSound2 = useRef();
+  padSound2.name = "padSound2";
   const leadSound1 = useRef();
+  leadSound1.name = "leadSound1";
   const leadSound2 = useRef();
+  leadSound2.name = "leadSound2";
   const leadSound3 = useRef();
+  leadSound3.name = "leadSound3";
   const droneSound = useRef();
+  droneSound.name = "droneSound";
   const arpSound = useRef();
+  arpSound.name = "arpSound";
 
   const triggerAudio = (event, sound) => {
+    console.log(sound.current);
+
+    let { value } = sound.current.gain.gain;
+
     if (sound.current.isPlaying === false) {
-      sound.current.gain.gain.value = 1;
+      if (sound.name === "padSound1") {
+        sound.current.gain.gain.value = volume1;
+      }
+      if (sound.name === "leadSound2") {
+        sound.current.gain.gain.value = volume2;
+      }
+      if (sound.name === "padSound2") {
+        sound.current.gain.gain.value = volume3;
+      }
+      if (sound.name === "bassSound") {
+        sound.current.gain.gain.value = volume4;
+      }
+      if (sound.name === "leadSound1") {
+        sound.current.gain.gain.value = volume5;
+      }
+      if (sound.name === "droneSound") {
+        sound.current.gain.gain.value = volume6;
+      }
+      if (sound.name === "arpSound") {
+        sound.current.gain.gain.value = volume7;
+      }
+      if (sound.name === "leadSound3") {
+        sound.current.gain.gain.value = volume8;
+      }
 
       sound.current.play();
       event.target.classList.add("sampler__trigger--playing");
+
+      // Fading out sound and changing trigger colour.
     } else {
       const fadeAudio = setInterval(() => {
         if (sound.current.gain.gain.value > 0) {
@@ -62,6 +115,8 @@ const Scene = ({ sounds, handleSoundChange }) => {
   const handleChange = async (event) => {
     setCurrentAnimation(event.target.value);
   };
+
+  // Stopping all sounds when changing bank.
 
   const handleBankChange = () => {
     if (bassSound.current.isPlaying) {
@@ -103,8 +158,41 @@ const Scene = ({ sounds, handleSoundChange }) => {
   };
 
   const handleVolumeChange = (event, sound) => {
-    sound.current.gain.gain.value = event.target.valueAsNumber;
+    if (sound.name === "padSound1") {
+      setVolume1(event.target.valueAsNumber);
+    }
+
+    if (sound.name === "leadSound2") {
+      setVolume2(event.target.valueAsNumber);
+    }
+
+    if (sound.name === "padSound2") {
+      setVolume3(event.target.valueAsNumber);
+    }
+
+    if (sound.name === "bassSound") {
+      setVolume4(event.target.valueAsNumber);
+    }
+
+    if (sound.name === "leadSound1") {
+      setVolume5(event.target.valueAsNumber);
+    }
+
+    if (sound.name === "droneSound") {
+      setVolume6(event.target.valueAsNumber);
+    }
+
+    if (sound.name === "arpSound") {
+      setVolume7(event.target.valueAsNumber);
+    }
+
+    if (sound.name === "leadSound3") {
+      setVolume8(event.target.valueAsNumber);
+    }
+
     console.log(sound);
+
+    sound.current.gain.gain.value = event.target.valueAsNumber;
   };
 
   return (
@@ -131,7 +219,6 @@ const Scene = ({ sounds, handleSoundChange }) => {
             </DatGui>
           </div>
         ) : null}
-        {/* <h1 className="page-title">PRAYER</h1> */}
 
         <select className="animation-dropdown" onChange={handleChange}>
           <option value="Horizon">Horizon</option>
@@ -227,7 +314,6 @@ const Scene = ({ sounds, handleSoundChange }) => {
                   pulseSettings={pulseSettings}
                   id={sounds.id}
                 />
-
                 <OceanAnimation />
               </>
             ) : (
@@ -267,6 +353,14 @@ const Scene = ({ sounds, handleSoundChange }) => {
         leadSound2={leadSound2}
         leadSound3={leadSound3}
         droneSound={droneSound}
+        volume1={volume1}
+        volume2={volume2}
+        volume3={volume3}
+        volume4={volume4}
+        volume5={volume5}
+        volume6={volume6}
+        volume7={volume7}
+        volume8={volume8}
       />
     </div>
   );

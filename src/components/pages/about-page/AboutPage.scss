@@ -4,6 +4,15 @@
     width: fit-content;
     margin: 0 auto;
 
+    @include tablet {
+      margin: 0 2.5rem 0 2.5rem;
+    }
+
+    @include desktop {
+      margin: 0 auto;
+      width: 60rem;
+    }
+
     > h3 {
       text-align: center;
       margin-top: 1.3rem;
@@ -13,13 +22,13 @@
       }
     }
 
-    @include desktop {
-      margin: 0 auto;
-      width: 60rem;
-    }
-
     &--border {
       border-bottom: 1px solid grey;
+    }
+
+    &--centre {
+      width: fit-content;
+      margin: 0 auto;
     }
   }
 
@@ -76,8 +85,4 @@
       }
     }
   }
-}
-
-a:nth-child(5) {
-  margin-bottom: 2rem;
 }

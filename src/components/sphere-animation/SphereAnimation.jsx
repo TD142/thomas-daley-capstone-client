@@ -28,6 +28,8 @@ const SphereAnimation = ({
   const bassAnalyser = useRef();
 
   useEffect(() => {
+    // Analysing the frequency from the sound
+
     arpAnalyser.current = new THREE.AudioAnalyser(arpSound.current, 128);
     pad1Analyser.current = new THREE.AudioAnalyser(padSound1.current, 128);
     pad2Analyser.current = new THREE.AudioAnalyser(padSound2.current, 128);
@@ -39,7 +41,11 @@ const SphereAnimation = ({
   }, []);
 
   useFrame((state, delta) => {
+    // Rotating the animation
+
     mesh.current.rotation.x = mesh.current.rotation.y += 0.01;
+
+    // Getting the average frequency.
 
     let arpFrequency = arpAnalyser.current.getAverageFrequency();
     let pad1Frequency = pad1Analyser.current.getAverageFrequency();
@@ -49,6 +55,8 @@ const SphereAnimation = ({
     let lead3Frequency = lead3Analyser.current.getAverageFrequency();
     let bassFrequency = bassAnalyser.current.getAverageFrequency();
     let droneFrequency = droneAnalyser.current.getAverageFrequency();
+
+    // Distributing the frequencies to the axis of the animation.
 
     if (id === "1") {
       mesh.current.scale.x =

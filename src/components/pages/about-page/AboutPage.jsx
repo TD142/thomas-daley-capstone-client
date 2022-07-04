@@ -29,7 +29,7 @@ const AboutPage = () => {
         </p>
       </section>
 
-      <section className="about__container">
+      <section className="about__container about__container--centre">
         <h3>Listen</h3>
         <div className="about__inner-container">
           <a href="https://grade10.uk/">Grade 10</a>
@@ -40,7 +40,7 @@ const AboutPage = () => {
             Black Acre
           </a>
           <a href="https://open.spotify.com/artist/72A349ge66Ptp7xhaaRUTR">
-            spotify
+            Spotify
           </a>
         </div>
       </section>

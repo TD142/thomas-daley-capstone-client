@@ -2,16 +2,27 @@
 .nav {
   display: flex;
   justify-content: flex-end;
+
+  width: 7rem;
+  margin: 1rem auto;
+
+  @include tablet {
+    width: 12rem;
+  }
 }
 
 a {
-  font-size: 1.5rem;
-  margin: 2rem auto;
+  font-size: 0.75rem;
+  margin: 1rem auto;
 
   list-style: none;
   color: white;
 
   @include tablet {
-    font-size: 2rem;
+    font-size: 1rem;
+
+    &:hover {
+      color: grey;
+    }
   }
 }
