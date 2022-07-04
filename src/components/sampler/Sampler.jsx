@@ -13,14 +13,7 @@ const Sampler = ({
   handleSoundChange,
   handleBankChange,
   handleVolumeChange,
-  volume1,
-  volume2,
-  volume3,
-  volume4,
-  volume5,
-  volume6,
-  volume7,
-  volume8,
+  volumes,
 }) => {
   return (
     <div className="sampler">
@@ -37,7 +30,7 @@ const Sampler = ({
             min={0}
             max={1}
             step={0.02}
-            value={volume1}
+            value={volumes.padSound1}
             onChange={(event) => {
               handleVolumeChange(event, padSound1);
             }}
@@ -55,7 +48,7 @@ const Sampler = ({
             min={0}
             max={1}
             step={0.02}
-            value={volume2}
+            value={volumes.leadSound2}
             onChange={(event) => {
               handleVolumeChange(event, leadSound2);
             }}
@@ -73,7 +66,7 @@ const Sampler = ({
             min={0}
             max={1}
             step={0.02}
-            value={volume3}
+            value={volumes.padSound2}
             onChange={(event) => {
               handleVolumeChange(event, padSound2);
             }}
@@ -91,7 +84,7 @@ const Sampler = ({
             min={0}
             max={1}
             step={0.02}
-            value={volume4}
+            value={volumes.bassSound}
             onChange={(event) => {
               handleVolumeChange(event, bassSound);
             }}
@@ -111,7 +104,7 @@ const Sampler = ({
             min={0}
             max={1}
             step={0.02}
-            value={volume5}
+            value={volumes.leadSound1}
             onChange={(event) => {
               handleVolumeChange(event, leadSound1);
             }}
@@ -129,7 +122,7 @@ const Sampler = ({
             min={0}
             max={1}
             step={0.02}
-            value={volume6}
+            value={volumes.droneSound}
             onChange={(event) => {
               handleVolumeChange(event, droneSound);
             }}
@@ -147,7 +140,7 @@ const Sampler = ({
             min={0}
             max={1}
             step={0.02}
-            value={volume7}
+            value={volumes.arpSound}
             onChange={(event) => {
               handleVolumeChange(event, arpSound);
             }}
@@ -165,7 +158,7 @@ const Sampler = ({
             min={0}
             max={1}
             step={0.02}
-            value={volume8}
+            value={volumes.leadSound3}
             onChange={(event) => {
               handleVolumeChange(event, leadSound3);
             }}

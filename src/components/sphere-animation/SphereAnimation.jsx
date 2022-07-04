@@ -27,7 +27,7 @@ const SphereAnimation = ({
   const bassAnalyser = useRef();
 
   useEffect(() => {
-    // Analysing the frequency from the sound
+    // Analysing the frequency from the sounds
 
     arpAnalyser.current = new THREE.AudioAnalyser(arpSound.current, 128);
     pad1Analyser.current = new THREE.AudioAnalyser(padSound1.current, 128);
