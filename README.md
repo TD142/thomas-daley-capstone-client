@@ -1,70 +1,37 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# OMEGA
 
 ## Available Scripts
 
-In the project directory, you can run:
+First install the dependancies:
+
+### `npm i`
+
+Then:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Runs project in development mode on http://localhost:3000
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+(Please note the server must be started first before running this script).
 
-### `npm test`
+# Interacting with the App.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Choosing an Animation
 
-### `npm run build`
+In the top right corner directly above the canvas there is an option drop down where you can choose from three animations.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Choosing an Animation Colour
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In the top left corner directly above the canvas there is a drop down where you can choose the current animation colour.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Interacting with the Music
 
-### `npm run eject`
+Click on a sampler pad to trigger a sound clip. Once actioned the selected pad will turn blue. to stop the track, click again, the pad will flash a red border and the audio will then fade out. Once the sound clip audio has stopped, the pad will return to its default white color.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Fade in or out the individual sound clips with the blue faders placed beneath the pads.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The individual tracks have been designed in a way to fit with each other no matter the time they are triggered. Experiment and see what you can come up with!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Audio Visualiser
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Each animation has a default background animation. Once the music is started you will see an animation reacting to the frequencies of the audio.
