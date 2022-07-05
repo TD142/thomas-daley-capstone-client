@@ -71,8 +71,9 @@ const Scene = ({ sounds, handleSoundChange }) => {
   ];
 
   const triggerAudio = (event, sound) => {
-    let { value } = sound.current;
+    console.log(sound.current.gain);
 
+    console.log(sound.getVolume);
     if (sound.current.isPlaying === false) {
       // retrieving channel volume dynamically.
       sound.current.gain.gain.value = volumes[sound.name];
@@ -103,7 +104,7 @@ const Scene = ({ sounds, handleSoundChange }) => {
   };
 
   const handleBankChange = () => {
-    // Stopping all sounds when changing bank.
+    // Stopping all sounds when changing sound bank.
 
     soundRefs.forEach((sound) => {
       if (sound.current.isPlaying) {
