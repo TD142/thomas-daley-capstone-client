@@ -46,9 +46,6 @@ const AboutPage = () => {
           camera={{
             rotation: [5, 6, 0],
             position: [2, 20, 400],
-            // fov: 55,
-            // near: 1,
-            // far: 1000,
           }}
         >
           <OceanAnimation />
