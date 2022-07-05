@@ -71,9 +71,6 @@ const Scene = ({ sounds, handleSoundChange }) => {
   ];
 
   const triggerAudio = (event, sound) => {
-    console.log(sound.current.gain);
-
-    console.log(sound.getVolume);
     if (sound.current.isPlaying === false) {
       // retrieving channel volume dynamically.
       sound.current.gain.gain.value = volumes[sound.name];
