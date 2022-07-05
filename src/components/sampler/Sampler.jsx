@@ -2,19 +2,22 @@ import "./Sampler.scss";
 
 const Sampler = ({
   triggerAudio,
-  arpSound,
-  bassSound,
-  padSound1,
-  padSound2,
-  leadSound1,
-  leadSound2,
-  leadSound3,
-  droneSound,
   handleSoundChange,
   handleBankChange,
   handleVolumeChange,
   volumes,
+  soundRefs,
 }) => {
+  const [
+    bassSound,
+    padSound1,
+    padSound2,
+    leadSound1,
+    leadSound2,
+    leadSound3,
+    droneSound,
+    arpSound,
+  ] = soundRefs;
   return (
     <div className="sampler">
       <div className="sampler__container">

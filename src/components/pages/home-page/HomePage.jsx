@@ -16,8 +16,6 @@ const HomePage = () => {
     const genre = event.target.value;
     const { data } = await axios.get(`${API_URL}/${genre.toLowerCase()}`);
     setSounds(data);
-
-    const sounds = document.getElementsByClassName("sound");
   };
 
   useEffect(() => {

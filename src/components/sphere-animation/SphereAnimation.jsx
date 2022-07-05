@@ -4,18 +4,18 @@ import * as THREE from "three";
 import { DoubleSide } from "three";
 import { useEffect } from "react";
 
-const SphereAnimation = ({
-  horizonSettings,
-  arpSound,
-  padSound1,
-  padSound2,
-  leadSound1,
-  leadSound2,
-  leadSound3,
-  droneSound,
-  bassSound,
-  id,
-}) => {
+const SphereAnimation = ({ horizonSettings, soundRefs, id }) => {
+  const [
+    bassSound,
+    padSound1,
+    padSound2,
+    leadSound1,
+    leadSound2,
+    leadSound3,
+    droneSound,
+    arpSound,
+  ] = soundRefs;
+
   const mesh = useRef();
   const arpAnalyser = useRef();
   const pad1Analyser = useRef();

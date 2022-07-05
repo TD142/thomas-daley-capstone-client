@@ -57,10 +57,24 @@ const Scene = ({ sounds, handleSoundChange }) => {
   const arpSound = useRef();
   arpSound.name = "arpSound";
 
+  // Placing refs in an array for cleaner access via props.
+
+  const soundRefs = [
+    bassSound,
+    padSound1,
+    padSound2,
+    leadSound1,
+    leadSound2,
+    leadSound3,
+    droneSound,
+    arpSound,
+  ];
+
   const triggerAudio = (event, sound) => {
-    let { value } = sound.current.gain.gain;
+    let { value } = sound.current;
 
     if (sound.current.isPlaying === false) {
+      // retrieving channel volume dynamically.
       sound.current.gain.gain.value = volumes[sound.name];
 
       sound.current.play();
@@ -135,6 +149,8 @@ const Scene = ({ sounds, handleSoundChange }) => {
         [sound.name]: event.target.valueAsNumber,
       };
     });
+
+    // Assigning input value to channel volume.
 
     sound.current.gain.gain.value = event.target.valueAsNumber;
   };
@@ -228,14 +244,7 @@ const Scene = ({ sounds, handleSoundChange }) => {
             {currentAnimation === "Horizon" ? (
               <>
                 <SphereAnimation
-                  arpSound={arpSound}
-                  padSound1={padSound1}
-                  bassSound={bassSound}
-                  padSound2={padSound2}
-                  leadSound1={leadSound1}
-                  leadSound2={leadSound2}
-                  leadSound3={leadSound3}
-                  droneSound={droneSound}
+                  soundRefs={soundRefs}
                   id={sounds.id}
                   horizonSettings={horizonSettings}
                 />
@@ -247,14 +256,7 @@ const Scene = ({ sounds, handleSoundChange }) => {
             {currentAnimation === "Pulse" ? (
               <>
                 <CircleAnimation
-                  arpSound={arpSound}
-                  padSound1={padSound1}
-                  bassSound={bassSound}
-                  padSound2={padSound2}
-                  leadSound1={leadSound1}
-                  leadSound2={leadSound2}
-                  leadSound3={leadSound3}
-                  droneSound={droneSound}
+                  soundRefs={soundRefs}
                   pulseSettings={pulseSettings}
                   id={sounds.id}
                 />
@@ -266,14 +268,7 @@ const Scene = ({ sounds, handleSoundChange }) => {
             {currentAnimation === "Vortex" ? (
               <>
                 <PlaneAnimation
-                  arpSound={arpSound}
-                  padSound1={padSound1}
-                  bassSound={bassSound}
-                  padSound2={padSound2}
-                  leadSound1={leadSound1}
-                  leadSound2={leadSound2}
-                  leadSound3={leadSound3}
-                  droneSound={droneSound}
+                  soundRefs={soundRefs}
                   vortexSettings={vortexSettings}
                 />
                 <TorusAnimation />
@@ -289,14 +284,7 @@ const Scene = ({ sounds, handleSoundChange }) => {
         handleSoundChange={handleSoundChange}
         handleBankChange={handleBankChange}
         handleVolumeChange={handleVolumeChange}
-        arpSound={arpSound}
-        bassSound={bassSound}
-        padSound1={padSound1}
-        padSound2={padSound2}
-        leadSound1={leadSound1}
-        leadSound2={leadSound2}
-        leadSound3={leadSound3}
-        droneSound={droneSound}
+        soundRefs={soundRefs}
         volumes={volumes}
       />
     </div>

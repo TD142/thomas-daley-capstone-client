@@ -5,18 +5,17 @@ import * as THREE from "three";
 import { useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 
-const CircleAnimation = ({
-  pulseSettings,
-  arpSound,
-  padSound1,
-  padSound2,
-  leadSound1,
-  leadSound2,
-  leadSound3,
-  droneSound,
-  bassSound,
-  id,
-}) => {
+const CircleAnimation = ({ pulseSettings, soundRefs, id }) => {
+  const [
+    bassSound,
+    padSound1,
+    padSound2,
+    leadSound1,
+    leadSound2,
+    leadSound3,
+    droneSound,
+    arpSound,
+  ] = soundRefs;
   const mesh = useRef();
 
   const arpAnalyser = useRef();
