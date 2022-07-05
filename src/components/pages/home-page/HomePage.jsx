@@ -12,6 +12,8 @@ const HomePage = () => {
     setSounds(data);
   };
 
+  console.log(API_URL);
+
   const handleSoundChange = async (event) => {
     const genre = event.target.value;
     const { data } = await axios.get(`${API_URL}/${genre.toLowerCase()}`);
