@@ -57,7 +57,7 @@ const Scene = ({ sounds, handleSoundChange }) => {
   const arpSound = useRef();
   arpSound.name = "arpSound";
 
-  // Placing refs in an array for cleaner access via props.
+  // Placing refs in an array for cleaner access and manpipulation.
 
   const soundRefs = [
     bassSound,
@@ -98,41 +98,18 @@ const Scene = ({ sounds, handleSoundChange }) => {
     }
   };
 
-  const handleChange = async (event) => {
+  const handleAnimationChange = async (event) => {
     setCurrentAnimation(event.target.value);
   };
 
-  // Stopping all sounds when changing bank.
-
   const handleBankChange = () => {
-    if (bassSound.current.isPlaying) {
-      bassSound.current.stop();
-    }
+    // Stopping all sounds when changing bank.
 
-    if (padSound1.current.isPlaying) {
-      padSound1.current.stop();
-    }
-
-    if (padSound2.current.isPlaying) {
-      padSound2.current.stop();
-    }
-
-    if (leadSound1.current.isPlaying) {
-      leadSound1.current.stop();
-    }
-
-    if (leadSound2.current.isPlaying) {
-      leadSound2.current.stop();
-    }
-    if (leadSound3.current.isPlaying) {
-      leadSound3.current.stop();
-    }
-    if (droneSound.current.isPlaying) {
-      droneSound.current.stop();
-    }
-    if (arpSound.current.isPlaying) {
-      arpSound.current.stop();
-    }
+    soundRefs.forEach((sound) => {
+      if (sound.current.isPlaying) {
+        sound.current.stop();
+      }
+    });
 
     const button = document.querySelectorAll("button");
 
@@ -180,7 +157,7 @@ const Scene = ({ sounds, handleSoundChange }) => {
           </div>
         ) : null}
 
-        <select className="animation-dropdown" onChange={handleChange}>
+        <select className="animation-dropdown" onChange={handleAnimationChange}>
           <option value="Horizon">Horizon</option>
           <option value="Pulse">Pulse</option>
           <option value="Vortex">Vortex</option>
