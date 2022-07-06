@@ -8,7 +8,7 @@ const HomePage = () => {
   const [sounds, setSounds] = useState({});
 
   const getSounds = async () => {
-    const { data } = await axios.get(`${API_URL}atmospheric`);
+    const { data } = await axios.get(`${API_URL}/atmospheric`);
     setSounds(data);
   };
 
