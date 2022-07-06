@@ -12,8 +12,10 @@ import TorusAnimation from "../torus-animation/TorusAnimation.jsx";
 import { PositionalAudio } from "@react-three/drei";
 import Sampler from "../sampler/Sampler.jsx";
 import OceanAnimation from "../ocean-animation/OceanAnimation.jsx";
-
+import { Html } from "@react-three/drei";
 import DatGui, { DatColor } from "react-dat-gui";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { Circles } from "react-loader-spinner";
 
 const Scene = ({ sounds, handleSoundChange }) => {
   const [currentAnimation, setCurrentAnimation] = useState("Horizon");
@@ -167,7 +169,18 @@ const Scene = ({ sounds, handleSoundChange }) => {
           <OrbitControls enableZoom={false} />
           <ambientLight intensity={0.5} />
           <directionalLight position={[-2, 10, 2]} intensity={0.5} />
-          <Suspense fallback={null}>
+          <Suspense
+            fallback={
+              <Html center>
+                <Circles
+                  ariaLabel="loading"
+                  color="white"
+                  height={80}
+                  width={80}
+                />
+              </Html>
+            }
+          >
             <PositionalAudio
               url={sounds.arp}
               distance={2000}
@@ -194,25 +207,25 @@ const Scene = ({ sounds, handleSoundChange }) => {
             />
             <PositionalAudio
               url={sounds.lead1}
-              distance={10}
+              distance={2000}
               loop
               ref={leadSound1}
             />
             <PositionalAudio
               url={sounds.lead2}
-              distance={10}
+              distance={2000}
               loop
               ref={leadSound2}
             />
             <PositionalAudio
               url={sounds.lead3}
-              distance={10}
+              distance={2000}
               loop
               ref={leadSound3}
             />
             <PositionalAudio
               url={sounds.drone}
-              distance={10}
+              distance={2000}
               loop
               ref={droneSound}
             />
@@ -226,7 +239,7 @@ const Scene = ({ sounds, handleSoundChange }) => {
                 <BoxAnimation />
               </>
             ) : (
-              <h1 className="loading">Loading</h1>
+              <></>
             )}
             {currentAnimation === "Pulse" ? (
               <>
