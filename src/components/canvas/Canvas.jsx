@@ -172,12 +172,8 @@ const Scene = ({ sounds, handleSoundChange }) => {
           <Suspense
             fallback={
               <Html center>
-                <Circles
-                  ariaLabel="loading"
-                  color="white"
-                  height={80}
-                  width={80}
-                />
+                <Circles color="white" height={80} width={80} />
+                <p className="loading">Loading</p>
               </Html>
             }
           >
