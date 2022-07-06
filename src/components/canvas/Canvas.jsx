@@ -173,25 +173,25 @@ const Scene = ({ sounds, handleSoundChange }) => {
           <Suspense fallback={null}>
             <PositionalAudio
               url={sounds.arp}
-              distance={10}
+              distance={2000}
               loop
               ref={arpSound}
             />
             <PositionalAudio
               url={sounds.bass}
-              distance={10}
+              distance={2000}
               loop
               ref={bassSound}
             />
             <PositionalAudio
               url={sounds.pad1}
-              distance={10}
+              distance={2000}
               loop
               ref={padSound1}
             />
             <PositionalAudio
               url={sounds.pad2}
-              distance={10}
+              distance={2000}
               loop
               ref={padSound2}
             />

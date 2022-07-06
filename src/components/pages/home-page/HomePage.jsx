@@ -24,6 +24,10 @@ const HomePage = () => {
     getSounds();
   }, []);
 
+  if (!sounds) {
+    return <h1>test</h1>;
+  }
+
   return (
     <div>
       <Main handleSoundChange={handleSoundChange} sounds={sounds} />
