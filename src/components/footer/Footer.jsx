@@ -1,7 +1,5 @@
-import React from "react";
 import "./Footer.scss";
-import { NavLink } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Footer = () => {
   const handleClick = () => {

@@ -1,8 +1,7 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { DoubleSide } from "three";
-import { useEffect } from "react";
 
 const SphereAnimation = ({ horizonSettings, soundRefs, id }) => {
   const [
@@ -39,7 +38,7 @@ const SphereAnimation = ({ horizonSettings, soundRefs, id }) => {
     bassAnalyser.current = new THREE.AudioAnalyser(bassSound.current, 128);
   }, []);
 
-  useFrame((state, delta) => {
+  useFrame(() => {
     // Rotating the animation
 
     mesh.current.rotation.x = mesh.current.rotation.y += 0.01;

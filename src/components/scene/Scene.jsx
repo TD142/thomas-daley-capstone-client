@@ -1,21 +1,17 @@
-import { useRef } from "react";
+import { useRef, Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import SphereAnimation from "../sphere-animation/SphereAnimation.jsx";
-import { OrbitControls } from "@react-three/drei";
-import "./Scene.scss";
-import { Suspense } from "react";
+import { OrbitControls, PositionalAudio, Html } from "@react-three/drei";
 import BoxAnimation from "../box-animation/BoxAnimation.jsx";
 import CircleAnimation from "../circle-animation/CircleAnimation.jsx";
-import { useState } from "react";
 import PlaneAnimation from "../plane-animation/PlaneAnimation.jsx";
 import TorusAnimation from "../torus-animation/TorusAnimation.jsx";
-import { PositionalAudio } from "@react-three/drei";
 import Sampler from "../sampler/Sampler.jsx";
 import OceanAnimation from "../ocean-animation/OceanAnimation.jsx";
-import { Html } from "@react-three/drei";
 import DatGui, { DatColor } from "react-dat-gui";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { Circles } from "react-loader-spinner";
+import "./Scene.scss";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const Scene = ({ sounds, handleSoundChange }) => {
   const [currentAnimation, setCurrentAnimation] = useState("Horizon");

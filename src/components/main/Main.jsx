@@ -1,4 +1,3 @@
-import React from "react";
 import Scene from "../scene/Scene";
 import "./Main.scss";
 

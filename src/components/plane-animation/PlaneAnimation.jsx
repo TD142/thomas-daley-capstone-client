@@ -1,9 +1,7 @@
-import React from "react";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { DoubleSide } from "three";
 import * as THREE from "three";
-import { useEffect } from "react";
 
 const PlaneAnimation = ({ vortexSettings, soundRefs }) => {
   const [
@@ -58,29 +56,6 @@ const PlaneAnimation = ({ vortexSettings, soundRefs }) => {
       lead3Frequency / 200 +
       droneFrequency / 200 +
       bassFrequency / 200;
-
-    // mesh.current.material.color.setRGB(
-    //   arpFrequency / 100,
-    //   0,
-    //   0 + bassFrequency / 20,
-    //   0,
-    //   0 + pad1Frequency / 100,
-    //   0,
-    //   0
-    //   // 0 + pad2Frequency * 100,
-    //   // 0,
-    //   // 0 + lead1Frequency * 500,
-    //   // 0,
-    //   // 0 + lead2Frequency / 20,
-    //   // 0,
-    //   // 0 + lead3Frequency / 20,
-    //   // 0,
-    //   // 0 + droneFrequency ,
-    //   // 0,
-    //   // 0 + bassFrequency / 20,
-    //   // 0,
-    //   // 0
-    // );
   });
   return (
     <mesh rotation={[1.6, 1, 0]} ref={mesh}>

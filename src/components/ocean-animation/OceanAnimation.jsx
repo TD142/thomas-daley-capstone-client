@@ -1,9 +1,6 @@
-import { extend } from "@react-three/fiber";
+import { extend, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { useRef, useMemo } from "react";
 import * as THREE from "three";
-import { useThree } from "@react-three/fiber";
-import { useLoader } from "@react-three/fiber";
-import { useFrame } from "@react-three/fiber";
 import { Water } from "three-stdlib";
 import Texture from "../../assets/images/water.jpeg";
 import { DoubleSide } from "three";

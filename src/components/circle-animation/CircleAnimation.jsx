@@ -1,8 +1,7 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { DoubleSide } from "three";
 import { MeshDistortMaterial } from "@react-three/drei";
 import * as THREE from "three";
-import { useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 
 const CircleAnimation = ({ pulseSettings, soundRefs, id }) => {
@@ -77,14 +76,6 @@ const CircleAnimation = ({ pulseSettings, soundRefs, id }) => {
           droneFrequency / 50 +
           bassFrequency / 200;
     }
-
-    // mesh.current.material.color.setRGB(
-    //   arpFrequency / 2,
-    //   0,
-    //   0 + pad1Frequency / 2,
-    //   0,
-    //   0
-    // );
   });
 
   return (
