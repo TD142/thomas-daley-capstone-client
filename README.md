@@ -30,8 +30,10 @@ Then:
 
 Runs project in development mode on http://localhost:3000
 
-(Please note if you wish to use this app with the development server download from below).
+(Please note the server for this project must be started first).
 https://github.com/TD142/thomas-daley-capstone-server
+
+API calls made to http://localhost:8080
 
 # Interacting with the App.
 

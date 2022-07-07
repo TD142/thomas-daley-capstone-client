@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import SphereAnimation from "../sphere-animation/SphereAnimation.jsx";
 import { OrbitControls } from "@react-three/drei";
-import "./Canvas.scss";
+import "./Scene.scss";
 import { Suspense } from "react";
 import BoxAnimation from "../box-animation/BoxAnimation.jsx";
 import CircleAnimation from "../circle-animation/CircleAnimation.jsx";

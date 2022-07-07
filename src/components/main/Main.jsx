@@ -1,5 +1,5 @@
 import React from "react";
-import Scene from "../canvas/Canvas";
+import Scene from "../scene/Scene";
 import "./Main.scss";
 
 const Main = ({ sounds, handleSoundChange }) => {
