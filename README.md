@@ -6,6 +6,10 @@
 
 The installation was created to explore new ways of how music can be made, and seeks to provide a platform for open ended composition, where anyone can create their own interpretation of a work given an underlying foundation for creation. The work largely explores “aleatoric” music, dating back to the 15th century, but popularised by John Cage in the 1950’s.
 
+## Live Website
+
+https://prayer-omega.herokuapp.com/
+
 ## Tech Stack
 
 HTML, Javascript, React, Three.js, Scss, Node Express, Axios.
@@ -26,7 +30,7 @@ Then:
 
 Runs project in development mode on http://localhost:3000
 
-(Please note the server must be started first before running this script).
+(Please note if you wish to use this app with the development server download from below).
 https://github.com/TD142/thomas-daley-capstone-server
 
 # Interacting with the App.
