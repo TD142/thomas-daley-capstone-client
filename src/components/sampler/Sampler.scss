@@ -114,3 +114,7 @@ input {
     width: 5rem;
   }
 }
+
+input[type="range"]::-webkit-slider-thumb {
+  color: white;
+}
