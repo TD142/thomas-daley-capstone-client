@@ -116,6 +116,17 @@ const Scene = ({ sounds, handleSoundChange }) => {
   };
 
   const handleVolumeChange = (event, sound) => {
+    //  changing the background colour on slider.
+
+    let target = event.target;
+
+    const min = target.min;
+    const max = target.max;
+    const val = target.value;
+
+    target.style.backgroundSize = ((val - min) * 100) / (max - min) + "% 100%";
+
+    // updating the volume.
     setVolumes((previousState) => {
       return {
         ...previousState,

@@ -108,12 +108,39 @@ option {
   text-align: center;
 }
 
-input {
+input[type="range"] {
+  -webkit-appearance: none;
   display: block;
+
+  margin: 1.3rem auto;
+
   width: 3.5rem;
-  margin: 1rem auto;
 
   @include tablet {
     width: 5rem;
+  }
+  height: 8px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  background-image: linear-gradient(#1874fc, #1874fc);
+  background-size: 100%;
+  background-repeat: no-repeat;
+
+  &[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: #1874fc;
+    cursor: ew-resize;
+    box-shadow: 0 0 2px 0 #555;
+    transition: background 0.3s ease-in-out;
+  }
+
+  &[type="range"]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
   }
 }

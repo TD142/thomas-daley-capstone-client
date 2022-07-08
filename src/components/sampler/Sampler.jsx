@@ -18,6 +18,21 @@ const Sampler = ({
     droneSound,
     arpSound,
   ] = soundRefs;
+
+  const rangeInputs = document.querySelectorAll('input[type="range"]');
+
+  // function handleInputColourChange(e) {
+  //   let target = e.target;
+  //   if (e.target.type !== "range") {
+  //     target = document.getElementById("range");
+  //   }
+  //   const min = target.min;
+  //   const max = target.max;
+  //   const val = target.value;
+
+  //   target.style.backgroundSize = ((val - min) * 100) / (max - min) + "% 100%";
+  // }
+
   return (
     <div className="sampler">
       <div className="sampler__container">
@@ -36,6 +51,7 @@ const Sampler = ({
             value={volumes.padSound1}
             onChange={(event) => {
               handleVolumeChange(event, padSound1);
+              // handleInputColourChange(event);
             }}
           />
         </div>
