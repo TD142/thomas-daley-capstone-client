@@ -21,6 +21,25 @@ const HomePage = () => {
     getSounds();
   }, []);
 
+  let context =
+    window.AudioContext || window.webkitAudioContext
+      ? new (window.AudioContext || window.webkitAudioContext)()
+      : null;
+
+  let allowBackgroundPlayback = false;
+  let forceIOSBehavior = false;
+
+  if (context) {
+    let unmuteHandle = unmute(
+      context,
+      allowBackgroundPlayback,
+      forceIOSBehavior
+    );
+
+    unmuteHandle.dispose();
+    unmuteHandle = null;
+  }
+
   return (
     <div>
       <Main handleSoundChange={handleSoundChange} sounds={sounds} />

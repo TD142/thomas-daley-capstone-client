@@ -58,3 +58,7 @@ Click the drop down beneath the pads to change sound bank.
 ## Audio Visualiser
 
 Each animation has a default background animation. Once the music is started you will see an animation reacting to the frequencies of the audio.
+
+## Additional Notes
+
+Sound will only work on ios if not on silent mode. This is due to ios configuration when playing web audio sounds.

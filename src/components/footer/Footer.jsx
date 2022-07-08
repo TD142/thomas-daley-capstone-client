@@ -17,7 +17,7 @@ const Footer = () => {
   };
 
   return (
-    <div>
+    <footer>
       <nav className="nav">
         <NavLink
           style={location.pathname === "/" ? displayNone : display}
@@ -34,7 +34,7 @@ const Footer = () => {
           About
         </NavLink>
       </nav>
-    </div>
+    </footer>
   );
 };
 
