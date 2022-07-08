@@ -37,6 +37,8 @@ const Scene = ({ sounds, handleSoundChange }) => {
     leadSound3: 1,
   });
 
+  // Enables ios audio to play when in silent mode.
+
   unmuteIosAudio();
 
   // Initalising ref for the sound and then giving it a name for clearer reference later on.
