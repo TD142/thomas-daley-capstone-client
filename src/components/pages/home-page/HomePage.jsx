@@ -2,7 +2,6 @@ import Main from "../../main/Main";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../../../utils/api";
-const unmuteiOSAudio = require("unmute-ios-audio");
 
 const HomePage = () => {
   const [sounds, setSounds] = useState({});
@@ -21,10 +20,6 @@ const HomePage = () => {
   useEffect(() => {
     getSounds();
   }, []);
-
-  // Enables iOS audio to play when in silent mode.
-
-  unmuteiOSAudio();
 
   return (
     <div>
