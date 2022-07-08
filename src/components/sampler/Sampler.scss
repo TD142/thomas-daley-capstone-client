@@ -108,6 +108,8 @@ option {
   text-align: center;
 }
 
+// resetting default slider styling for browser cross compatability.
+
 input[type="range"] {
   -webkit-appearance: none;
   display: block;
@@ -126,7 +128,7 @@ input[type="range"] {
   background-size: 100%;
   background-repeat: no-repeat;
 
-  &[type="range"]::-webkit-slider-thumb {
+  &::-webkit-slider-thumb {
     -webkit-appearance: none;
     height: 15px;
     width: 15px;
@@ -137,7 +139,7 @@ input[type="range"] {
     transition: background 0.3s ease-in-out;
   }
 
-  &[type="range"]::-webkit-slider-runnable-track {
+  &::-webkit-slider-runnable-track {
     -webkit-appearance: none;
     box-shadow: none;
     border: none;
