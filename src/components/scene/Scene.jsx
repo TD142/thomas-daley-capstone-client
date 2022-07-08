@@ -12,7 +12,7 @@ import DatGui, { DatColor } from "react-dat-gui";
 import { Circles } from "react-loader-spinner";
 import "./Scene.scss";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-const unmuteAudio = require("unmute-ios-audio");
+const unmuteiOSAudio = require("unmute-ios-audio");
 
 const Scene = ({ sounds, handleSoundChange }) => {
   const [currentAnimation, setCurrentAnimation] = useState("Horizon");
@@ -36,10 +36,6 @@ const Scene = ({ sounds, handleSoundChange }) => {
     arpSound: 1,
     leadSound3: 1,
   });
-
-  // Enables ios audio to play when in silent mode.
-
-  unmuteAudio();
 
   // Initalising ref for the sound and then giving it a name for clearer reference later on.
 
@@ -74,6 +70,10 @@ const Scene = ({ sounds, handleSoundChange }) => {
   ];
 
   const triggerAudio = (event, sound) => {
+    // Enables iOS audio to play when in silent mode.
+
+    unmuteiOSAudio();
+
     if (sound.current.isPlaying === false) {
       // retrieving channel volume dynamically.
       sound.current.gain.gain.value = volumes[sound.name];
