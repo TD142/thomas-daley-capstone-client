@@ -19,7 +19,7 @@ const AboutPage = () => {
         <section className="about__container about__container--border">
           <h2 className="about__secondary-header">About The Artist</h2>
           <p className="about__secondary-text">
-            Prayer is a electronic musician focusing on the cinematic and
+            Prayer is an electronic musician focusing on the cinematic and
             emotional side of dance music. His music has been played on BBC
             Radio 1, BBC Radio 6, Kiss FM, Rinse FM and he has played at venues
             around the world such as Dimensions Festival Croatia, and the Tate
