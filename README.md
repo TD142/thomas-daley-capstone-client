@@ -12,7 +12,9 @@ https://prayer-omega.herokuapp.com/
 
 ## Tech Stack
 
-HTML, Javascript, React, Three.js, Scss, Node Express, Axios.
+HTML, Javascript, React, Three.js, SCSS / CSS, Node Express, Axios.
+
+<img alt="React logo" src="./src/assets/images/react-logo.png" width="200"> <img alt="Express logo" src="./src/assets/images/axios.png" width="200"> <img alt="Axios logo" src="./src/assets/images/axios.png" width="200"> <img alt="HTML logo" src="./src/assets/images/html.png" width="200"> <img alt="Javascript logo" src="./src/assets/images/javascript.png" width="200"> <img alt="NPM logo" src="./src/assets/images/npm.png" width="200"> <img alt="SCSS logo" src="./src/assets/images/scss.png" width="200"> <img alt="Three.js logo" src="./src/assets/images/threejs.png" width="200">
 
 ## Next Steps
 
