@@ -12,7 +12,7 @@ https://prayer-omega.herokuapp.com/
 
 ## Tech Stack
 
-<img alt="React logo" src="./src/assets/images/react-logo.png" height="150" width="150"> <img alt="Express logo" src="./src/assets/images/express.png" height="150" width="250"> <img alt="Axios logo" src="./src/assets/images/axios.png" height="125" width="200"> <img alt="HTML logo" src="./src/assets/images/html.png" height="150" width="150"> <img alt="Javascript logo" src="./src/assets/images/javascript.png" height="150" width="150"> <img alt="NPM logo" src="./src/assets/images/npm.png" height="150" width="150"> <img alt="SCSS logo" src="./src/assets/images/scss.png" height="150" width="150"> <img alt="Three.js logo" src="./src/assets/images/threejs.png" height="150" width="250">
+<img alt="React logo" src="./src/assets/images/react-logo.png" height="125" width="150"> <img alt="Express logo" src="./src/assets/images/express.png" height="125" width="250"> <img alt="Axios logo" src="./src/assets/images/axios.png" height="125" width="200"> <img alt="HTML logo" src="./src/assets/images/html.png" height="125" width="150"> <img alt="Javascript logo" src="./src/assets/images/javascript.png" height="125" width="150"> <img alt="NPM logo" src="./src/assets/images/npm.png" height="125" width="150"> <img alt="SCSS logo" src="./src/assets/images/scss.png" height="125" width="150"> <img alt="Three.js logo" src="./src/assets/images/threejs.png" height="125" width="250">
 
 ## Next Steps
 
