@@ -18,7 +18,7 @@ https://prayer-omega.herokuapp.com/
 
 ## Next Steps
 
-There is plenty of scope for further progression in this project. My journey in to three.js and web audio has only just begain. I plan on building more advanced animations and implementing timing / tempo methods for the audio.
+There is plenty of scope for further progression in this project. My journey in to Three.js and web audio has only just begun. I plan on building more advanced animations and implementing timing / tempo methods for the audio.
 
 ## Available Scripts
 
