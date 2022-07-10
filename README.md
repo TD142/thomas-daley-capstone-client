@@ -16,7 +16,7 @@ https://prayer-omega.herokuapp.com/
 
 ## Next Steps
 
-There is plenty of scope for further progression in this project. My journey in to three.js and web audio has only just begain. I plan on building more advanced animations and implementing timing / tempo methods for the audio.
+There is plenty of scope for further progression in this project. My journey in to Three.js and web audio has only just begun. I plan on building more advanced animations and implementing timing / tempo methods for the audio.
 
 ## Available Scripts
 
@@ -61,4 +61,4 @@ Each animation has a default background animation. Once the music is started you
 
 ## Additional Notes
 
-Sound will only work on ios if not on silent mode. This is due to ios configuration when playing web audio sounds.
+Sound will only work on iOS if not on silent mode. This is due to iOS configuration when playing web audio sounds.
