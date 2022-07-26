@@ -39,7 +39,7 @@ API calls made to http://localhost:8080
 
 ## Choosing an Animation
 
-In the top right corner directly above the canvas there is an option drop down where you can choose from three animations.
+In the top right corner directly above the canvas there is an option drop down where you can choose from three animations. Note that if you hold click on the animation canvas and scroll, you can move the animation around. 
 
 ## Choosing an Animation Colour
 
