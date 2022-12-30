@@ -55,7 +55,7 @@ const Scene = ({ sounds, handleSoundChange }) => {
   const arpSound = useRef();
   arpSound.name = "arpSound";
 
-  // Placing refs in an array for cleaner access and manpipulation.
+  // Placing refs in an array for cleaner access and manipulation.
 
   const soundRefs = [
     bassSound,
