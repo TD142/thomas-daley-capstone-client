@@ -7,17 +7,13 @@ const HomePage = () => {
   const [sounds, setSounds] = useState({});
 
   const getSounds = async () => {
-    const { data } = await axios.get(
-      `https://prayer-omega-api.onrender.com/atmospheric`
-    );
+    const { data } = await axios.get(`${API_URL}/atmospheric`);
     setSounds(data);
   };
 
   const handleSoundChange = async (event) => {
     const genre = event.target.value;
-    const { data } = await axios.get(
-      `https://prayer-omega-api.onrender.com/${genre.toLowerCase()}`
-    );
+    const { data } = await axios.get(`${API_URL}/${genre.toLowerCase()}`);
     setSounds(data);
   };
 
