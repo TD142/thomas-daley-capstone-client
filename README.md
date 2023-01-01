@@ -8,7 +8,7 @@ The installation was created to explore new ways of how music can be made, and s
 
 ## Live Website
 
-https://prayer-omega.herokuapp.com/
+https://prayer-omega.vercel.app/
 
 ## Tech Stack
 
